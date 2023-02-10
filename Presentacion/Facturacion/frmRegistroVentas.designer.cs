@@ -419,7 +419,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_idvendedor
             // 
             this.Lbltrv_idvendedor.AutoSize = true;
-            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(33, 140);
+            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(237, 88);
             this.Lbltrv_idvendedor.Name = "Lbltrv_idvendedor";
             this.Lbltrv_idvendedor.Size = new System.Drawing.Size(76, 15);
             this.Lbltrv_idvendedor.TabIndex = 0;
@@ -457,7 +457,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_idformapago
             // 
             this.Lbltrv_idformapago.AutoSize = true;
-            this.Lbltrv_idformapago.Location = new System.Drawing.Point(15, 165);
+            this.Lbltrv_idformapago.Location = new System.Drawing.Point(463, 116);
             this.Lbltrv_idformapago.Name = "Lbltrv_idformapago";
             this.Lbltrv_idformapago.Size = new System.Drawing.Size(90, 15);
             this.Lbltrv_idformapago.TabIndex = 0;
