@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7Fd4EcjzlpUWT3wsCQdzfnI1ao1hDKb4ILBKPgE7i7wY9UGryvVDhMXMzGofmAF9g+S9FCM6M3zAm/veJc3Uuw==",
+  "dgSpecHash": "n91jDuXcyzWix2EdyvKpgiDR0/ODr5StpSZJ/a/AmkJvudX3Q6ytiLUnjoMyWSgpW19ndNNuL7sWB2OGaW/xzA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
+  "projectFilePath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\roy_e\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\roy_e\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",

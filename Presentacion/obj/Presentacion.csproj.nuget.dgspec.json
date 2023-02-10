@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Presentacion\\Presentacion.csproj": {}
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Presentacion\\Presentacion.csproj": {}
   },
   "projects": {
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\Clases.csproj": {
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\Clases.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\Clases.csproj",
+        "projectUniqueName": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\Clases.csproj",
         "projectName": "Clases",
-        "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\Clases.csproj",
+        "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\Clases.csproj",
         "packagesPath": "C:\\Users\\roy_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\obj\\",
+        "outputPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
@@ -21,7 +21,6 @@
         ],
         "configFilePaths": [
           "C:\\Users\\roy_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -31,7 +30,6 @@
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -75,14 +73,14 @@
         }
       }
     },
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\Datos.csproj": {
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\Datos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\Datos.csproj",
+        "projectUniqueName": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\Datos.csproj",
         "projectName": "Datos",
-        "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\Datos.csproj",
+        "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\Datos.csproj",
         "packagesPath": "C:\\Users\\roy_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\obj\\",
+        "outputPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
@@ -92,7 +90,6 @@
         ],
         "configFilePaths": [
           "C:\\Users\\roy_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -102,7 +99,6 @@
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -112,8 +108,8 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj"
               }
             }
           }
@@ -160,14 +156,14 @@
         }
       }
     },
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj": {
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj",
+        "projectUniqueName": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj",
         "projectName": "Entidades",
-        "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj",
+        "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj",
         "packagesPath": "C:\\Users\\roy_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\obj\\",
+        "outputPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
@@ -177,7 +173,6 @@
         ],
         "configFilePaths": [
           "C:\\Users\\roy_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -187,7 +182,6 @@
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -231,14 +225,14 @@
         }
       }
     },
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Presentacion\\Presentacion.csproj": {
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Presentacion\\Presentacion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Presentacion\\Presentacion.csproj",
+        "projectUniqueName": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Presentacion\\Presentacion.csproj",
         "projectName": "Presentacion",
-        "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Presentacion\\Presentacion.csproj",
+        "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Presentacion\\Presentacion.csproj",
         "packagesPath": "C:\\Users\\roy_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Presentacion\\obj\\",
+        "outputPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Presentacion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
@@ -248,7 +242,6 @@
         ],
         "configFilePaths": [
           "C:\\Users\\roy_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -258,7 +251,6 @@
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -268,14 +260,14 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\Clases.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Clases\\Clases.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\Clases.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Clases\\Clases.csproj"
               },
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj"
               },
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj"
               }
             }
           }
@@ -322,14 +314,14 @@
         }
       }
     },
-    "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj": {
+    "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
+        "projectUniqueName": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
         "projectName": "ReglaNegocio",
-        "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
+        "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\ReglaNegocio.csproj",
         "packagesPath": "C:\\Users\\roy_e\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\ReglaNegocio\\obj\\",
+        "outputPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\ReglaNegocio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",
@@ -339,7 +331,6 @@
         ],
         "configFilePaths": [
           "C:\\Users\\roy_e\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 20.1.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 21.2.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
@@ -349,7 +340,6 @@
           "net7.0-windows"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\DevExpress 20.1\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\System\\Components\\Packages": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "C:\\Program Files\\dotnet\\library-packs": {},
@@ -359,11 +349,11 @@
           "net7.0-windows7.0": {
             "targetAlias": "net7.0-windows",
             "projectReferences": {
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\Datos.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Datos\\Datos.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\Datos.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Datos\\Datos.csproj"
               },
-              "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj": {
-                "projectPath": "C:\\Users\\roy_e\\Documents\\Visual Studio 2022\\Examen\\Entidades\\Entidades.csproj"
+              "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj": {
+                "projectPath": "C:\\Users\\roy_e\\OneDrive\\Documentos\\Visual Studio 2022\\Templates\\Examen\\Entidades\\Entidades.csproj"
               }
             }
           }
