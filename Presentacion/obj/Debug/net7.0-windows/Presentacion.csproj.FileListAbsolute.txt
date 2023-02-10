@@ -104,3 +104,17 @@ C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Presentac
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.genruntimeconfig.cache
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Presentacion\obj\Debug\net7.0-windows\ref\Presentacion.dll
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Presentacion\bin\Debug\net7.0-windows\Presentacion.dll.config
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.csproj.AssemblyReference.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.Ayudas.HLP_FILTRO.resources
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.Ayudas.HLP_GENERALI.resources
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.Facturacion.frmRegistroVentas.resources
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.Menus.frmMenuVentas.resources
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.Properties.Resources.resources
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.csproj.GenerateResource.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.AssemblyInfoInputs.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.AssemblyInfo.cs
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\refint\Presentacion.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Presentacion\obj\Debug\net7.0-windows\Presentacion.pdb

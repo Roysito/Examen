@@ -238,7 +238,7 @@ namespace Presentacion.Facturacion
             this.TabPage1.Location = new System.Drawing.Point(4, 24);
             this.TabPage1.Name = "TabPage1";
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage1.Size = new System.Drawing.Size(936, 417);
+            this.TabPage1.Size = new System.Drawing.Size(1321, 795);
             this.TabPage1.TabIndex = 0;
             this.TabPage1.Text = "Información del General";
             this.TabPage1.UseVisualStyleBackColor = true;
@@ -250,7 +250,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxControl.Location = new System.Drawing.Point(0, 3);
             this.AcxControl.Name = "AcxControl";
-            this.AcxControl.Size = new System.Drawing.Size(933, 411);
+            this.AcxControl.Size = new System.Drawing.Size(1318, 789);
             this.AcxControl.TabIndex = 38;
             this.AcxControl.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxControl_CellBeginEdit);
             this.AcxControl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxControl_CellContentClick);
@@ -374,7 +374,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_registro
             // 
             this.Lbltrv_registro.AutoSize = true;
-            this.Lbltrv_registro.Location = new System.Drawing.Point(15, 90);
+            this.Lbltrv_registro.Location = new System.Drawing.Point(331, 10);
             this.Lbltrv_registro.Name = "Lbltrv_registro";
             this.Lbltrv_registro.Size = new System.Drawing.Size(103, 15);
             this.Lbltrv_registro.TabIndex = 0;
@@ -382,7 +382,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_registro
             // 
-            this.Txttrv_registro.Location = new System.Drawing.Point(296, 91);
+            this.Txttrv_registro.Location = new System.Drawing.Point(612, 11);
             this.Txttrv_registro.MaxLength = 8;
             this.Txttrv_registro.Name = "Txttrv_registro";
             this.Txttrv_registro.Size = new System.Drawing.Size(100, 23);
@@ -772,7 +772,7 @@ namespace Presentacion.Facturacion
             this.Tol_Moneda});
             this.ToolDetalles.Location = new System.Drawing.Point(0, 0);
             this.ToolDetalles.Name = "ToolDetalles";
-            this.ToolDetalles.Size = new System.Drawing.Size(930, 25);
+            this.ToolDetalles.Size = new System.Drawing.Size(1315, 25);
             this.ToolDetalles.TabIndex = 67;
             this.ToolDetalles.Text = "ToolStrip2";
             // 

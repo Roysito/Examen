@@ -10,3 +10,15 @@ C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Clases\ob
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Clases\obj\Debug\net7.0-windows\refint\Clases.dll
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Clases\obj\Debug\net7.0-windows\Clases.pdb
 C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Clases\obj\Debug\net7.0-windows\ref\Clases.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\bin\Debug\net7.0-windows\Clases.deps.json
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\bin\Debug\net7.0-windows\Clases.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\bin\Debug\net7.0-windows\Clases.pdb
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.csproj.AssemblyReference.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.AssemblyInfoInputs.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.AssemblyInfo.cs
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.csproj.CoreCompileInputs.cache
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\refint\Clases.dll
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\Clases.pdb
+C:\Users\roy_e\Documents\Visual Studio 2022\Examen\Clases\obj\Debug\net7.0-windows\ref\Clases.dll
