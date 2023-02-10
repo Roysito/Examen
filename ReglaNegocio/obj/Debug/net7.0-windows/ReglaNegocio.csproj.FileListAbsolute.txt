@@ -1,0 +1,17 @@
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\ReglaNegocio.deps.json
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\ReglaNegocio.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\ReglaNegocio.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\Datos.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\Entidades.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\Datos.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\bin\Debug\net7.0-windows\Entidades.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.csproj.AssemblyReference.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.AssemblyInfoInputs.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.AssemblyInfo.cs
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.csproj.CoreCompileInputs.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.csproj.CopyComplete
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\refint\ReglaNegocio.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ReglaNegocio.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\ReglaNegocio\obj\Debug\net7.0-windows\ref\ReglaNegocio.dll

@@ -1,0 +1,17 @@
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\bin\Debug\net7.0-windows\Examen.exe
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\bin\Debug\net7.0-windows\Examen.deps.json
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\bin\Debug\net7.0-windows\Examen.runtimeconfig.json
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\bin\Debug\net7.0-windows\Examen.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\bin\Debug\net7.0-windows\Examen.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.csproj.AssemblyReference.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.Form1.resources
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.csproj.GenerateResource.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.AssemblyInfoInputs.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.AssemblyInfo.cs
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.csproj.CoreCompileInputs.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\refint\Examen.dll
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.pdb
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\Examen.genruntimeconfig.cache
+C:\Users\roy_e\OneDrive\Documentos\Visual Studio 2022\Templates\Examen\Examen\obj\Debug\net7.0-windows\ref\Examen.dll
