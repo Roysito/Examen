@@ -19,6 +19,7 @@ using CapaLogicaNegocio;
 using Presentacion.Ayudas;
 using Presentacion.Clases;
 using Clases;
+using Telerik.Windows.Documents.Core.TextMeasurer;
 
 namespace Presentacion.Facturacion
 {
@@ -33,16 +34,25 @@ namespace Presentacion.Facturacion
         Validar iValidar = new Validar();
         int Col_trv_periodo;
         int Col_trv_tipo;
+        int Col_trv_tipo_d;
         int Col_trv_registro;
         int Col_trv_entidad;
+        int Col_trv_entidad_c;
+        int Col_trv_entidad_d;
         int Col_trv_idvendedor;
+        int Col_trv_idvendedor_c;
+        int Col_trv_idvendedor_d;
         int Col_trv_idformapago;
+        int Col_trv_idformapago_c;
+        int Col_trv_idformapago_d;
         int Col_trv_tdoc;
+        int Col_trv_tdoc_d;
         int Col_trv_sdoc;
         int Col_trv_ndoc;
         int Col_trv_femision;
         int Col_trv_fvencimiento;
         int Col_trv_moneda;
+        int Col_trv_moneda_d;
         int Col_trv_tcambio;
         int Col_trv_dctos;
         int Col_trv_vventa;
@@ -51,10 +61,7 @@ namespace Presentacion.Facturacion
         int Col_trv_aigv;
         int Col_trv_flag;
         int Col_trv_pigv;
-        int Col_Det_trvd_periodo;
-        int Col_Det_trvd_tipo;
-        int Col_Det_trvd_registro;
-        int Col_Det_trvd_nroitm;
+
         int Col_Det_trvd_idarticulo;
         int Col_Det_trvd_idarticulo_Ayu;
         int Col_Det_trvd_idarticulo_Des;
@@ -305,7 +312,7 @@ namespace Presentacion.Facturacion
             {
                 AcxDetalles.Rows[lIntItem].Cells[lInI].Value = "";
             }
-            AcxDetalles.BeginEdit(true);
+            //AcxDetalles.BeginEdit(true);
             AcxDetalles.CurrentCell = AcxDetalles.Rows[lIntItem].Cells[1];
         }
         private void Tlb_D_Duplica_Click_1(object sender, EventArgs e)
@@ -361,7 +368,19 @@ namespace Presentacion.Facturacion
                 {
                     AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
                 }
-            GlobalesVariables._IsPulsaF1CeldaGrid = false;
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_cant".ToUpper())
+                {
+                    AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                }
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_preun".ToUpper())
+                {
+                    AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                }
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_pdcto".ToUpper())
+                {
+                    AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag = AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value;
+                }
+                GlobalesVariables._IsPulsaF1CeldaGrid = false;
             }
         }
         private void AcxDetalles_CellEndEdit(object sender, DataGridViewCellEventArgs e)
@@ -370,7 +389,7 @@ namespace Presentacion.Facturacion
             {
                 if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_idarticulo".ToUpper()) //Id Articulo
                 {
-                    if (iConvertir.aString(AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value).ToString() != "") 
+                    if (iConvertir.aString(AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value).ToString() != "")
                     {
                         if (AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag)
                         {
@@ -382,6 +401,36 @@ namespace Presentacion.Facturacion
                         this.AcxDetalles.Rows[AcxDetalles.CurrentRow.Index].Cells[Col_Det_trvd_idarticulo_Ayu].Tag = "";
                         this.AcxDetalles.Rows[AcxDetalles.CurrentRow.Index].Cells[Col_Det_trvd_idarticulo].Value = "";
                         this.AcxDetalles.Rows[AcxDetalles.CurrentRow.Index].Cells[Col_Det_trvd_idarticulo_Des].Value = "";
+                    }
+                }
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_cant".ToUpper())
+                {
+                    if (iConvertir.aString(AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value).ToString() != "")
+                    {
+                        if (AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag)
+                        {
+                            Totales();
+                        }
+                    }
+                }
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_preun".ToUpper())
+                {
+                    if (iConvertir.aString(AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value).ToString() != "")
+                    {
+                        if (AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag)
+                        {
+                            Totales();
+                        }
+                    }
+                }
+                if (this.AcxDetalles.Columns[e.ColumnIndex].Name.ToUpper() == "trvd_pdcto".ToUpper())
+                {
+                    if (iConvertir.aString(AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value).ToString() != "")
+                    {
+                        if (AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Tag)
+                        {
+                            Totales();
+                        }
                     }
                 }
                 GlobalesVariables._IsPulsaF1CeldaGrid = false;
@@ -404,26 +453,6 @@ namespace Presentacion.Facturacion
         }
         private void AcxDetalles_CellValidating(object sender, DataGridViewCellValidatingEventArgs e)
         {
-            if (this.AcxDetalles.Columns[this.AcxDetalles.CurrentCell.ColumnIndex].Name.ToUpper() == "trvd_nroitm".ToUpper()) //Correlativo
-            {
-                if (iValidar.EsNumero(e.FormattedValue.ToString()) == false)
-                {
-                    iUT_Telerik.setRadMensaje("Solo se permite números", "E");
-                    e.Cancel = true;
-                }
-                this.AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, iConvertir.aDecimal(e.FormattedValue.ToString()));
-                AcxDetalles.RefreshEdit();
-            }
-            if (this.AcxDetalles.Columns[this.AcxDetalles.CurrentCell.ColumnIndex].Name.ToUpper() == "trvd_idarticulo".ToUpper()) //Id Articulo
-            {
-                if (iValidar.EsNumero(e.FormattedValue.ToString()) == false)
-                {
-                    iUT_Telerik.setRadMensaje("Solo se permite números", "E");
-                    e.Cancel = true;
-                }
-                this.AcxDetalles.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, iConvertir.aDecimal(e.FormattedValue.ToString()));
-                AcxDetalles.RefreshEdit();
-            }
             if (this.AcxDetalles.Columns[this.AcxDetalles.CurrentCell.ColumnIndex].Name.ToUpper() == "trvd_cant".ToUpper()) //Cantidad
             {
                 if (iValidar.EsNumero(e.FormattedValue.ToString()) == false)
@@ -727,6 +756,26 @@ namespace Presentacion.Facturacion
                 AyudaTMONEDAS_trv_moneda();
         }
         #endregion Eventos_Ayuda_Validaciones
+        private void Txttrv_periodo_ValueChanged(object sender, EventArgs e)
+        {
+            GeneraRegistro();
+        }
+        private void Txttrv_mes_ValueChanged(object sender, EventArgs e)
+        {
+            GeneraRegistro();
+        }
+        private void Txttrv_aigv_CheckedChanged(object sender, EventArgs e)
+        {
+            Totales();
+        }
+        private void Txttrv_tcambio_ValueChanged(object sender, EventArgs e)
+        {
+            Totales();
+        }
+        private void Txttrv_pigv_ValueChanged(object sender, EventArgs e)
+        {
+            Totales();
+        }
         #endregion
 
         #region "Metodos"
@@ -753,8 +802,8 @@ namespace Presentacion.Facturacion
             Tlb_Eliminar.Enabled = Mnu_Eliminar.Enabled;
             Tlb_Duplicar.Enabled = Mnu_Duplicar.Enabled;
             Tlb_Consultar.Enabled = pBolHabilitado;
-            iBolModoEdicion =! pBolHabilitado;
-            mnuOcultar.Visible =! pBolHabilitado;
+            iBolModoEdicion = !pBolHabilitado;
+            mnuOcultar.Visible = !pBolHabilitado;
             AcxDetalles.ReadOnly = pBolHabilitado;
             if (pBolHabilitado)
             {
@@ -767,8 +816,12 @@ namespace Presentacion.Facturacion
                 TabPage2.Parent = TabControl1;
                 setMostrarFiltro(false);
             }
-            if (pBolHabilitado!=false)
+            if (pBolHabilitado != false)
                 AcxDetalles.Rows.Clear();
+            if (iIntModo == 2)
+                GrpClave.Enabled = false;
+            else
+                GrpClave.Enabled = true;
         }
         public void setOpcionConsultar(bool pBolHabilitar)
         {
@@ -813,33 +866,33 @@ namespace Presentacion.Facturacion
         private void setDatosInicializa()
         {
             iBolCambiaEstatus = false;
-        Txttrv_periodo.Text = "";
-        Txttrv_tipo.Text = "";
-        Txttrv_tipo_Des.Text = "";
-        Txttrv_registro.Text = "";
-        Txttrv_entidad.Text = "";
-        Txttrv_entidad_Des.Text = "";
-        Txttrv_idvendedor.Text = "";
-        Txttrv_idvendedor_Des.Text = "";
-        Txttrv_idformapago.Text = "";
-        Txttrv_idformapago_Des.Text = "";
-        Txttrv_tdoc.Text = "";
-        Txttrv_tdoc_Des.Text = "";
-        Txttrv_sdoc.Text = "";
+            Txttrv_periodo.Text = "";
+            Txttrv_tipo.Text = "";
+            Txttrv_tipo_Des.Text = "";
+            Txttrv_registro.Text = "";
+            Txttrv_entidad.Text = "";
+            Txttrv_entidad_Des.Text = "";
+            Txttrv_idvendedor.Text = "";
+            Txttrv_idvendedor_Des.Text = "";
+            Txttrv_idformapago.Text = "";
+            Txttrv_idformapago_Des.Text = "";
+            Txttrv_tdoc.Text = "";
+            Txttrv_tdoc_Des.Text = "";
+            Txttrv_sdoc.Text = "";
             Txttrv_ndoc.Text = "";
-        Txttrv_ndoc.Text = "";
-        Txttrv_femision.Text = "";
-        Txttrv_fvencimiento.Text = "";
-        Txttrv_moneda.Text = "";
-        Txttrv_moneda_Des.Text = "";
-        Txttrv_tcambio.Text = "";
-        Txttrv_dctos.Text = "";
-        Txttrv_vventa.Text = "";
-        Txttrv_igv.Text = "";
-        Txttrv_total.Text = "";
-        Txttrv_aigv.Text = "";
-        Txttrv_flag.Text = "";
-        Txttrv_pigv.Text = "";
+            Txttrv_ndoc.Text = "";
+            Txttrv_femision.Text = "";
+            Txttrv_fvencimiento.Text = "";
+            Txttrv_moneda.Text = "";
+            Txttrv_moneda_Des.Text = "";
+            Txttrv_tcambio.Value = 3.789m;
+            Txttrv_dctos.Text = "";
+            Txttrv_vventa.Text = "";
+            Txttrv_igv.Text = "";
+            Txttrv_total.Text = "";
+            Txttrv_aigv.Checked = true;
+            Txttrv_flag.Checked = true;
+            Txttrv_pigv.Value = 18.00m;
             iBolCambiaEstatus = true;
         }
         private void getDatosDetalles()
@@ -859,40 +912,84 @@ namespace Presentacion.Facturacion
             {
                 foreach (ENT_TRVENTAS_CAB Lista in iLisENT_TRVENTAS_CAB)
                 {
-                    Txttrv_periodo.Text= Convert.ToString(Lista.trv_periodo).ToString();
-                    Txttrv_tipo.Text= Convert.ToString(Lista.trv_tipo).ToString();
-                    Btntrv_tipo.Tag= Convert.ToString(Lista.trv_tipo).ToString();
+                    Txttrv_periodo.Value = Convert.ToDateTime("01/" + "01/" + Lista.trv_periodo);
+                    Txttrv_tipo.Text = Convert.ToString(Lista.trv_tipo).ToString();
+                    Btntrv_tipo.Tag = Convert.ToString(Lista.trv_tipo).ToString();
                     Txttrv_tipo_Des.Text = "";
-                    Txttrv_registro.Text= Convert.ToString(Lista.trv_registro).ToString();
-                    Txttrv_entidad.Text= Convert.ToInt32(Lista.trv_entidad).ToString();
-                    Btntrv_entidad.Tag= Convert.ToInt32(Lista.trv_entidad).ToString();
+                    Txttrv_mes.Value = Convert.ToDateTime("01/" + Lista.trv_registro.Substring(0, 2) + "/2023");
+                    Txttrv_registro.Text = Convert.ToString(Lista.trv_registro.Substring(2, 6)).ToString();
+                    Txttrv_entidad.Text = Convert.ToInt32(Lista.trv_entidad).ToString();
+                    Btntrv_entidad.Tag = Convert.ToInt32(Lista.trv_entidad).ToString();
                     Txttrv_entidad_Des.Text = "";
-                    Txttrv_idvendedor.Text= Convert.ToInt32(Lista.trv_idvendedor).ToString();
-                    Btntrv_idvendedor.Tag= Convert.ToInt32(Lista.trv_idvendedor).ToString();
+                    Txttrv_idvendedor.Text = Convert.ToInt32(Lista.trv_idvendedor).ToString();
+                    Btntrv_idvendedor.Tag = Convert.ToInt32(Lista.trv_idvendedor).ToString();
                     Txttrv_idvendedor_Des.Text = "";
-                    Txttrv_idformapago.Text= Convert.ToInt32(Lista.trv_idformapago).ToString();
-                    Btntrv_idformapago.Tag= Convert.ToInt32(Lista.trv_idformapago).ToString();
+                    Txttrv_idformapago.Text = Convert.ToInt32(Lista.trv_idformapago).ToString();
+                    Btntrv_idformapago.Tag = Convert.ToInt32(Lista.trv_idformapago).ToString();
                     Txttrv_idformapago_Des.Text = "";
-                    Txttrv_tdoc.Text= Convert.ToString(Lista.trv_tdoc).ToString();
-                    Btntrv_tdoc.Tag= Convert.ToString(Lista.trv_tdoc).ToString();
+                    Txttrv_tdoc.Text = Convert.ToString(Lista.trv_tdoc).ToString();
+                    Btntrv_tdoc.Tag = Convert.ToString(Lista.trv_tdoc).ToString();
                     Txttrv_tdoc_Des.Text = "";
-                    Txttrv_sdoc.Text= Convert.ToString(Lista.trv_sdoc).ToString();
-                    Btntrv_sdoc.Tag= Convert.ToString(Lista.trv_sdoc).ToString();
+                    Txttrv_sdoc.Text = Convert.ToString(Lista.trv_sdoc).ToString();
+                    Btntrv_sdoc.Tag = Convert.ToString(Lista.trv_sdoc).ToString();
                     Txttrv_ndoc.Text = "";
-                    Txttrv_ndoc.Text= Convert.ToString(Lista.trv_ndoc).ToString();
-                    Txttrv_femision.Text= Convert.ToDateTime(Lista.trv_femision).ToString();
-                    Txttrv_fvencimiento.Text= Convert.ToDateTime(Lista.trv_fvencimiento).ToString();
-                    Txttrv_moneda.Text= Convert.ToString(Lista.trv_moneda).ToString();
-                    Btntrv_moneda.Tag= Convert.ToString(Lista.trv_moneda).ToString();
+                    Txttrv_ndoc.Text = Convert.ToString(Lista.trv_ndoc).ToString();
+                    Txttrv_femision.Text = Convert.ToDateTime(Lista.trv_femision).ToString();
+                    Txttrv_fvencimiento.Text = Convert.ToDateTime(Lista.trv_fvencimiento).ToString();
+                    Txttrv_moneda.Text = Convert.ToString(Lista.trv_moneda).ToString();
+                    Btntrv_moneda.Tag = Convert.ToString(Lista.trv_moneda).ToString();
                     Txttrv_moneda_Des.Text = "";
-                    Txttrv_tcambio.Text= Convert.ToDecimal(Lista.trv_tcambio).ToString();
-                    Txttrv_dctos.Text= Convert.ToDecimal(Lista.trv_dctos).ToString();
-                    Txttrv_vventa.Text= Convert.ToDecimal(Lista.trv_vventa).ToString();
-                    Txttrv_igv.Text= Convert.ToDecimal(Lista.trv_igv).ToString();
-                    Txttrv_total.Text= Convert.ToDecimal(Lista.trv_total).ToString();
-                    Txttrv_aigv.Text= Convert.ToInt32(Lista.trv_aigv).ToString();
-                    Txttrv_flag.Text= Convert.ToInt32(Lista.trv_flag).ToString();
-                    Txttrv_pigv.Text= Convert.ToDecimal(Lista.trv_pigv).ToString();
+                    Txttrv_tcambio.Text = Convert.ToDecimal(Lista.trv_tcambio).ToString();
+                    Txttrv_dctos.Text = Convert.ToDecimal(Lista.trv_dctos).ToString();
+                    Txttrv_vventa.Text = Convert.ToDecimal(Lista.trv_vventa).ToString();
+                    Txttrv_igv.Text = Convert.ToDecimal(Lista.trv_igv).ToString();
+                    Txttrv_total.Text = Convert.ToDecimal(Lista.trv_total).ToString();
+                    Txttrv_aigv.Checked = Convert.ToBoolean(Lista.trv_aigv);
+                    Txttrv_flag.Checked = Convert.ToBoolean(Lista.trv_flag);
+                    Txttrv_pigv.Text = Convert.ToDecimal(Lista.trv_pigv).ToString();
+
+                    var lLisNivel = (from LE in LN_TNIVEL_VENTA.getListarTNIVEL_VENTA(GlobalesVariables.company, Txttrv_tipo.Text) select LE).ToList();
+                    if (lLisNivel.ToList().Count() > 0)
+                    {
+                        Btntrv_tipo.Tag = lLisNivel.ToList()[0].tven_codigo.ToString();
+                        Txttrv_tipo.Text = lLisNivel.ToList()[0].tven_codigo.ToString();
+                        Txttrv_tipo_Des.Text = lLisNivel.ToList()[0].tven_descripcion.ToString();
+                    }
+                    var vLisCtaCte = (from LE in LN_TCTACTE.getListarTCTACTE(iConvertir.aEntero(Btntrv_entidad.Tag), null) select LE).ToList();
+                    if (vLisCtaCte.ToList().Count() > 0)
+                    {
+                        Btntrv_entidad.Tag = vLisCtaCte.ToList()[0].id_ctacte.ToString();
+                        Txttrv_entidad.Text = vLisCtaCte.ToList()[0].c_ctacte.ToString();
+                        Txttrv_entidad_Des.Text = vLisCtaCte.ToList()[0].t_razon_social.ToString();
+                    }
+                    var vLisVendedor = (from LE in LN_TVENDEDOR.getListarTVENDEDOR(iConvertir.aEntero(Btntrv_idvendedor.Tag), null) select LE).ToList();
+                    if (vLisVendedor.ToList().Count() > 0)
+                    {
+                        Btntrv_idvendedor.Tag = vLisVendedor.ToList()[0].id_vendedor.ToString();
+                        Txttrv_idvendedor.Text = vLisVendedor.ToList()[0].c_vendedor.ToString();
+                        Txttrv_idvendedor_Des.Text = vLisVendedor.ToList()[0].t_vendedor.ToString();
+                    }
+                    var vLisFPago = (from LE in LN_TFORMA_PAGO.getListarTFORMA_PAGO(iConvertir.aEntero(Btntrv_idformapago.Tag), null) select LE).ToList();
+                    if (vLisFPago.ToList().Count() > 0)
+                    {
+                        Btntrv_idformapago.Tag = vLisFPago.ToList()[0].id_forma_pago.ToString();
+                        Txttrv_idformapago.Text = vLisFPago.ToList()[0].c_forma_pago.ToString();
+                        Txttrv_idformapago_Des.Text = vLisFPago.ToList()[0].t_forma_pago.ToString();
+                    }
+                    var vTDocu = (from LE in LN_TDOCUMENTOS.getListarTDOCUMENTOS(GlobalesVariables.company, Txttrv_tdoc.Text) select LE).ToList();
+                    if (vTDocu.ToList().Count() > 0)
+                    {
+                        Btntrv_tdoc.Tag = vTDocu.ToList()[0].tdoc_codigo.ToString();
+                        Txttrv_tdoc.Text = vTDocu.ToList()[0].tdoc_codigo.ToString();
+                        Txttrv_tdoc_Des.Text = vTDocu.ToList()[0].tdoc_descripcion.ToString();
+                    }
+                    var vLisMoneda = (from LE in LN_TMONEDAS.getListarTMONEDAS(Txttrv_moneda.Text) select LE).ToList();
+                    if (vLisMoneda.ToList().Count() > 0)
+                    {
+                        Btntrv_moneda.Tag = vLisMoneda.ToList()[0].mnd_cod.ToString();
+                        Txttrv_moneda.Text = vLisMoneda.ToList()[0].mnd_cod.ToString();
+                        Txttrv_moneda_Des.Text = vLisMoneda.ToList()[0].mnd_des.ToString();
+                    }
                     Application.DoEvents();
                 }
             }
@@ -903,11 +1000,7 @@ namespace Presentacion.Facturacion
                 foreach (ENT_TRVENTAS_DET Lista in iLisENT_TRVENTAS_DET)
                 {
                     lIntItem = AcxDetalles.Rows.Add(0, "", "");
-                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_periodo].Value = Convert.ToString(Lista.trvd_periodo);
-                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_tipo].Value = Convert.ToString(Lista.trvd_tipo);
-                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_registro].Value = Convert.ToString(Lista.trvd_registro);
-                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_nroitm].Value = Convert.ToInt32(Lista.trvd_nroitm);
-                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo].Value = Convert.ToInt32(Lista.trvd_idarticulo);
+                    AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo_Ayu].Tag = Convert.ToInt32(Lista.trvd_idarticulo);
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_cant].Value = Convert.ToDecimal(Lista.trvd_cant);
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_preun].Value = Convert.ToDecimal(Lista.trvd_preun);
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_pdcto].Value = Convert.ToDecimal(Lista.trvd_pdcto);
@@ -915,6 +1008,13 @@ namespace Presentacion.Facturacion
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_vvta].Value = Convert.ToDecimal(Lista.trvd_vvta);
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_igv].Value = Convert.ToDecimal(Lista.trvd_igv);
                     AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_tot].Value = Convert.ToDecimal(Lista.trvd_tot);
+                    var vLisArticulo = (from LE in LN_TARTICULO.getListarTARTICULO(iConvertir.aEntero(AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo_Ayu].Tag), null) select LE).ToList();
+                    if (vLisArticulo.ToList().Count() > 0)
+                    {
+                        this.AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo_Ayu].Tag = vLisArticulo.ToList()[0].id_articulo.ToString();
+                        this.AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo].Value = vLisArticulo.ToList()[0].c_articulo.ToString();
+                        this.AcxDetalles.Rows[lIntItem].Cells[Col_Det_trvd_idarticulo_Des].Value = vLisArticulo.ToList()[0].t_articulo.ToString();
+                    }
                     Application.DoEvents();
                     if (iBolDetener)
                     {
@@ -922,6 +1022,7 @@ namespace Presentacion.Facturacion
                     }
                 }
             }
+            Totales();
             iBolCambiaEstatus = true;
             this.Cursor = Cursors.Default;
             lIntItem = 0;
@@ -1053,45 +1154,52 @@ namespace Presentacion.Facturacion
         public void ConfigGridPrincipal()
         {
             iUT_ExGrid.setInicializaDataGridView(AcxControl, true, true, false, false, true);
-        Col_trv_periodo = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_periodo", "Periodo", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_periodo
-        Col_trv_tipo = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tipo", "Nivel Venta", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_tipo
-        Col_trv_registro = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_registro", "Número Registro", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_registro
-        Col_trv_entidad = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_entidad", "Id Ctacte", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_entidad
-        Col_trv_idvendedor = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idvendedor", "Id Vendedor", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_idvendedor
-        Col_trv_idformapago = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idformapago", "Id Forma Pago", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_idformapago
-        Col_trv_tdoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tdoc", "Código Documento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_tdoc
-        Col_trv_sdoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_sdoc", "Serie Documento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_sdoc
-        Col_trv_ndoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_ndoc", "Número Documento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_ndoc
-        Col_trv_femision = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_femision", "Fecha Emisión", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_femision
-        Col_trv_fvencimiento = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_fvencimiento", "Fecha Vencimiento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_fvencimiento
-        Col_trv_moneda = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_moneda", "Código Moneda", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_moneda
-        Col_trv_tcambio = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tcambio", "Tipo de Cambio", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_tcambio
-        Col_trv_dctos = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_dctos", "Total Descuentos", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_dctos
-        Col_trv_vventa = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_vventa", "Base Imponible", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_vventa
-        Col_trv_igv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_igv", "Igv", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_igv
-        Col_trv_total = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_total", "Total Venta", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_total
-        Col_trv_aigv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_aigv", "Afeco a Igv", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_aigv
-        Col_trv_flag = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_flag", "Flag Anulado", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_flag
-        Col_trv_pigv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_pigv", "Porcentaje Igv", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_pigv
+            Col_trv_periodo = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_periodo", "Periodo", 80, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_periodo
+            Col_trv_tipo = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tipo", "Nivel Venta", 80, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_tipo
+            Col_trv_tipo_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tipo_d", "Nivel Venta", 200, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_registro = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_registro", "Número Registro", 80, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_registro
+            Col_trv_entidad = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_entidad", "Id Ctacte", 0, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_entidad
+            Col_trv_entidad_c = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_entidad_c", "Cod. Ctacte", 80, true, true, "TEXT", 0, 0, "CENTRO", "", "");
+            Col_trv_entidad_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_entidad_d", "Nom. Ctacte", 350, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_idvendedor = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idvendedor", "Id Vendedor", 0, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_idvendedor
+            Col_trv_idvendedor_c = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idvendedor_c", "Cod. Vendedor", 80, true, true, "TEXT", 0, 0, "CENTRO", "", "");
+            Col_trv_idvendedor_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idvendedor_d", "Nom. Vendedor", 350, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_idformapago = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idformapago", "Id Forma Pago", 0, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_idformapago
+            Col_trv_idformapago_c = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idformapago_c", "Cod. Forma Pago", 80, true, true, "TEXT", 0, 0, "CENTRO", "", "");
+            Col_trv_idformapago_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_idformapago_d", "Nom. Forma Pago", 200, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_tdoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tdoc", "Código Documento", 80, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_tdoc
+            Col_trv_tdoc_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tdoc_d", "Nombre Documento", 250, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_sdoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_sdoc", "Serie Documento", 80, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_sdoc
+            Col_trv_ndoc = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_ndoc", "Número Documento", 100, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_ndoc
+            Col_trv_femision = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_femision", "Fecha Emisión", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_femision
+            Col_trv_fvencimiento = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_fvencimiento", "Fecha Vencimiento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trv_fvencimiento
+            Col_trv_moneda = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_moneda", "Código Moneda", 0, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_moneda
+            Col_trv_moneda_d = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_moneda_d", "Nom. Moneda", 200, true, true, "TEXT", 0, 0, "IZQUIERDA", "", "");
+            Col_trv_tcambio = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_tcambio", "Tipo de Cambio", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trv_tcambio
+            Col_trv_dctos = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_dctos", "Total Descuentos", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trv_dctos
+            Col_trv_vventa = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_vventa", "Base Imponible", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trv_vventa
+            Col_trv_igv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_igv", "Igv", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trv_igv
+            Col_trv_total = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_total", "Total Venta", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trv_total
+            Col_trv_aigv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_aigv", "Afeco Igv", 100, true, true, "CHECK", 0, 0, "CENTRO", "", ""); //trv_aigv
+            Col_trv_flag = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_flag", "Activo", 100, true, true, "CHECK", 0, 0, "CENTRO", "", ""); //trv_flag
+            Col_trv_pigv = iUT_ExGrid.getAñadeColumna(AcxControl, "trv_pigv", "Porcentaje Igv", 100, true, true, "TEXT", 0, 0, "CENTRO", "", ""); //trv_pigv
             AcxControl.ReadOnly = false;
+            AcxControl.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
         }
         public void ConfigGridDetalles()
         {
             iUT_ExGrid.setInicializaDataGridView(AcxDetalles, true, true, false, false, true);
-        Col_Det_trvd_periodo = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_periodo","Periodo", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_periodo
-        Col_Det_trvd_tipo = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_tipo","Nivel Ventas", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_tipo
-        Col_Det_trvd_registro = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_registro","Número Registro", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_registro
-        Col_Det_trvd_nroitm = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_nroitm","Correlativo", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_nroitm
-        Col_Det_trvd_idarticulo = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_idarticulo","Id Articulo", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_idarticulo
-        Col_Det_trvd_idarticulo_Ayu = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_idarticulo_Ayu","...", 30, true, true, "BUTTON", 0, 0, "CENTRO", "", ""); //trvd_idarticulo
+            Col_Det_trvd_idarticulo = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_idarticulo", "Id Articulo", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_idarticulo
+            Col_Det_trvd_idarticulo_Ayu = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_idarticulo_Ayu", "...", 30, true, true, "BUTTON", 0, 0, "CENTRO", "", ""); //trvd_idarticulo
             Col_Det_trvd_idarticulo_Des = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_idarticulo_Des", "Descripción", 350, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_idarticulo
-            Col_Det_trvd_cant = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_cant","Cantidad", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_cant
-        Col_Det_trvd_preun = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_preun","Precio Unitario", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_preun
-        Col_Det_trvd_pdcto = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_pdcto","% Descuento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_pdcto
-        Col_Det_trvd_dcto = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_dcto","Monto Descuento", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_dcto
-        Col_Det_trvd_vvta = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_vvta","Base Imponible", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_vvta
-        Col_Det_trvd_igv = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_igv","Igv", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_igv
-        Col_Det_trvd_tot = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_tot","Total Venta", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_tot
+            Col_Det_trvd_cant = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_cant", "Cantidad", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_cant
+            Col_Det_trvd_preun = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_preun", "Precio Unitario", 100, true, true, "TEXT", 0, 0, "IZQUIERDA", "", ""); //trvd_preun
+            Col_Det_trvd_pdcto = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_pdcto", "% Descuento", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trvd_pdcto
+            Col_Det_trvd_dcto = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_dcto", "Monto Descuento", 0, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trvd_dcto
+            Col_Det_trvd_vvta = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_vvta", "Base Imponible", 100, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trvd_vvta
+            Col_Det_trvd_igv = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_igv", "Igv", 0, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trvd_igv
+            Col_Det_trvd_tot = iUT_ExGrid.getAñadeColumna(AcxDetalles, "trvd_tot", "Total Venta", 0, true, true, "TEXT", 0, 0, "DERECHA", "", ""); //trvd_tot
+            AcxDetalles.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             AcxDetalles.ReadOnly = false;
         }
         public void ConfigGridFiltro()
@@ -1116,26 +1224,68 @@ namespace Presentacion.Facturacion
                 foreach (var Lista in lLisENT_TRVENTAS_CAB)
                 {
                     lIntItem = AcxControl.Rows.Add(0, "", "");
-                AcxControl.Rows[lIntItem].Cells[Col_trv_periodo].Value = Convert.ToString(Lista.trv_periodo);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value = Convert.ToString(Lista.trv_tipo);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_registro].Value = Convert.ToString(Lista.trv_registro);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = Convert.ToInt32(Lista.trv_entidad);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = Convert.ToInt32(Lista.trv_idvendedor);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = Convert.ToInt32(Lista.trv_idformapago);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Lista.trv_tdoc);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_sdoc].Value = Convert.ToString(Lista.trv_sdoc);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_ndoc].Value = Convert.ToString(Lista.trv_ndoc);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_femision].Value = Convert.ToDateTime(Lista.trv_femision);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_fvencimiento].Value = Convert.ToDateTime(Lista.trv_fvencimiento);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Lista.trv_moneda);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_tcambio].Value = Convert.ToDecimal(Lista.trv_tcambio);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_dctos].Value = Convert.ToDecimal(Lista.trv_dctos);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_vventa].Value = Convert.ToDecimal(Lista.trv_vventa);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_igv].Value = Convert.ToDecimal(Lista.trv_igv);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_total].Value = Convert.ToDecimal(Lista.trv_total);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_aigv].Value = Convert.ToInt32(Lista.trv_aigv);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_flag].Value = Convert.ToInt32(Lista.trv_flag);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_pigv].Value = Convert.ToDecimal(Lista.trv_pigv);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_periodo].Value = Convert.ToString(Lista.trv_periodo);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value = Convert.ToString(Lista.trv_tipo);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_registro].Value = Convert.ToString(Lista.trv_registro);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = Convert.ToInt32(Lista.trv_entidad);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = Convert.ToInt32(Lista.trv_idvendedor);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = Convert.ToInt32(Lista.trv_idformapago);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Lista.trv_tdoc);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_sdoc].Value = Convert.ToString(Lista.trv_sdoc);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_ndoc].Value = Convert.ToString(Lista.trv_ndoc);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_femision].Value = Convert.ToDateTime(Lista.trv_femision);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_fvencimiento].Value = Convert.ToDateTime(Lista.trv_fvencimiento);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Lista.trv_moneda);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_tcambio].Value = Convert.ToDecimal(Lista.trv_tcambio);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_dctos].Value = Convert.ToDecimal(Lista.trv_dctos);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_vventa].Value = Convert.ToDecimal(Lista.trv_vventa);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_igv].Value = Convert.ToDecimal(Lista.trv_igv);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_total].Value = Convert.ToDecimal(Lista.trv_total);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_aigv].Value = Convert.ToBoolean(Lista.trv_aigv);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_flag].Value = Convert.ToBoolean(Lista.trv_flag);
+                    AcxControl.Rows[lIntItem].Cells[Col_trv_pigv].Value = Convert.ToDecimal(Lista.trv_pigv);
+
+                    var lLisNivel = (from LE in LN_TNIVEL_VENTA.getListarTNIVEL_VENTA(GlobalesVariables.company, iConvertir.aString(AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value)) select LE).ToList();
+                    if (lLisNivel.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value = lLisNivel.ToList()[0].tven_codigo.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_tipo_d].Value = lLisNivel.ToList()[0].tven_descripcion.ToString();
+                    }
+                    var vLisCtaCte = (from LE in LN_TCTACTE.getListarTCTACTE(iConvertir.aEntero(AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value), null) select LE).ToList();
+                    if (vLisCtaCte.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = vLisCtaCte.ToList()[0].id_ctacte.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_entidad_c].Value = vLisCtaCte.ToList()[0].c_ctacte.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_entidad_d].Value = vLisCtaCte.ToList()[0].t_razon_social.ToString();
+                    }
+                    var vLisVendedor = (from LE in LN_TVENDEDOR.getListarTVENDEDOR(iConvertir.aEntero(AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value), null) select LE).ToList();
+                    if (vLisVendedor.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = vLisVendedor.ToList()[0].id_vendedor.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor_c].Value = vLisVendedor.ToList()[0].c_vendedor.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor_d].Value = vLisVendedor.ToList()[0].t_vendedor.ToString();
+                    }
+                    var vLisFPago = (from LE in LN_TFORMA_PAGO.getListarTFORMA_PAGO(iConvertir.aEntero(AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value), null) select LE).ToList();
+                    if (vLisFPago.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = vLisFPago.ToList()[0].id_forma_pago.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago_c].Value = vLisFPago.ToList()[0].c_forma_pago.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago_d].Value = vLisFPago.ToList()[0].t_forma_pago.ToString();
+                    }
+                    var vTDocu = (from LE in LN_TDOCUMENTOS.getListarTDOCUMENTOS(GlobalesVariables.company, iConvertir.aString(AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value)) select LE).ToList();
+                    if (vTDocu.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = vTDocu.ToList()[0].tdoc_codigo.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = vTDocu.ToList()[0].tdoc_codigo.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc_d].Value = vTDocu.ToList()[0].tdoc_descripcion.ToString();
+                    }
+                    var vLisMoneda = (from LE in LN_TMONEDAS.getListarTMONEDAS(iConvertir.aString(AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value)) select LE).ToList();
+                    if (vLisMoneda.ToList().Count() > 0)
+                    {
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = vLisMoneda.ToList()[0].mnd_cod.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = vLisMoneda.ToList()[0].mnd_cod.ToString();
+                        AcxControl.Rows[lIntItem].Cells[Col_trv_moneda_d].Value = vLisMoneda.ToList()[0].mnd_des.ToString();
+                    }
                     if (iBolDetener) break;
                 }
                 AcxControl.Visible = true;
@@ -1153,7 +1303,7 @@ namespace Presentacion.Facturacion
         {
             int lIntItem = 0;
             int lIntColu = 0;
-            string vChMsg = ""; 
+            string vChMsg = "";
             AcxDetalles.EndEdit();
             if (getValidacionFicha() == false)
             {
@@ -1169,22 +1319,22 @@ namespace Presentacion.Facturacion
                 if (iIntModo != 2)
                 {
                     List<ENT_TRVENTAS_CAB> lLisTRVENTAS_CAB = null;
-                    lLisTRVENTAS_CAB = LN_TRVENTAS_CAB.getListarTRVENTAS_CAB(GlobalesVariables.company,Convert.ToString(Txttrv_periodo.Text.ToString().Trim()),Convert.ToString(Txttrv_tipo.Text.ToString().Trim()),Convert.ToString(Txttrv_registro.Text.ToString().Trim()));
+                    lLisTRVENTAS_CAB = LN_TRVENTAS_CAB.getListarTRVENTAS_CAB(GlobalesVariables.company, Convert.ToString(Txttrv_periodo.Text.ToString().Trim()), Convert.ToString(Txttrv_tipo.Text.ToString().Trim()), Convert.ToString(Txttrv_registro.Text.ToString().Trim()));
                     if ((lLisTRVENTAS_CAB.ToList().Count() > 0))
                     {
                         vChMsg = iConvertir.aString("Clave de Registro especificada ya existe");
                         goto ContinuarAqui;
                     }
                 }
-                ContinuarAqui:
+            ContinuarAqui:
                 if (iConvertir.aString(vChMsg).Trim() != "")
                 {
                     this.Cursor = Cursors.Default;
                     TabControl1.SelectedIndex = 0;
                     //if (lIntItem != 0)
                     //{
-                        //AcxFicha.Items.EnsureVisibleItem(lIntItem);
-                        //AcxFicha.Items.SelectItem[lIntItem] = true;
+                    //AcxFicha.Items.EnsureVisibleItem(lIntItem);
+                    //AcxFicha.Items.SelectItem[lIntItem] = true;
                     //}
                     iUT_Telerik.setRadMensaje(vChMsg, "I", "Mensaje de la Aplicación");
                     //AcxFicha.EnsureVisibleColumn(lIntColu);
@@ -1207,26 +1357,51 @@ namespace Presentacion.Facturacion
                 {
                     lIntItem = AcxControl.CurrentRow.Index;
                 }
-                AcxControl.Rows[lIntItem].Cells[Col_trv_periodo].Value = Convert.ToString(Txttrv_periodo.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_periodo].Value = Convert.ToString(Txttrv_periodo.Value.ToString("yyyy"));
                 AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value = Convert.ToString(Txttrv_tipo.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_registro].Value = Convert.ToString(Txttrv_registro.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = Convert.ToInt32(Txttrv_entidad.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = Convert.ToInt32(Txttrv_idvendedor.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = Convert.ToInt32(Txttrv_idformapago.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Txttrv_tdoc.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_sdoc].Value = Convert.ToString(Txttrv_sdoc.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_registro].Value = Convert.ToString(Txttrv_mes.Value.ToString("MM")) + Convert.ToString(Txttrv_registro.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = Convert.ToInt32(Btntrv_entidad.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = Convert.ToInt32(Btntrv_idvendedor.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = Convert.ToInt32(Btntrv_idformapago.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Btntrv_tdoc.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_sdoc].Value = Convert.ToString(Btntrv_sdoc.Tag);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_ndoc].Value = Convert.ToString(Txttrv_ndoc.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_femision].Value = Convert.ToDateTime(Txttrv_femision.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_fvencimiento].Value = Convert.ToDateTime(Txttrv_fvencimiento.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Txttrv_moneda.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Btntrv_moneda.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_tcambio].Value = Convert.ToDecimal(Txttrv_tcambio.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_dctos].Value = Convert.ToDecimal(Txttrv_dctos.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_vventa].Value = Convert.ToDecimal(Txttrv_vventa.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_igv].Value = Convert.ToDecimal(Txttrv_igv.Text);
                 AcxControl.Rows[lIntItem].Cells[Col_trv_total].Value = Convert.ToDecimal(Txttrv_total.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_aigv].Value = Convert.ToInt32(Txttrv_aigv.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_flag].Value = Convert.ToInt32(Txttrv_flag.Text);
-                AcxControl.Rows[lIntItem].Cells[Col_trv_pigv].Value = Convert.ToDecimal(Txttrv_pigv.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_aigv].Value = Convert.ToInt32(Txttrv_aigv.Checked);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_flag].Value = Convert.ToInt32(Txttrv_flag.Checked);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_pigv].Value = Convert.ToDecimal(Txttrv_pigv.Value);
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value = Convert.ToString(Txttrv_tipo.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tipo_d].Value = Convert.ToString(Txttrv_tipo_Des.Text);
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad].Value = Convert.ToInt32(Btntrv_entidad.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad_c].Value = Convert.ToString(Txttrv_entidad.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_entidad_d].Value = Convert.ToString(Txttrv_entidad_Des.Text);
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor].Value = Convert.ToInt32(Btntrv_idvendedor.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor_c].Value = Convert.ToString(Txttrv_idvendedor.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idvendedor_d].Value = Convert.ToString(Txttrv_idvendedor_Des.Text);
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago].Value = Convert.ToInt32(Btntrv_idformapago.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago_c].Value = Convert.ToString(Txttrv_idformapago.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_idformapago_d].Value = Convert.ToString(Txttrv_idformapago_Des.Text);
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Btntrv_tdoc.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc].Value = Convert.ToString(Txttrv_tdoc.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_tdoc_d].Value = Convert.ToString(Txttrv_tdoc_Des.Text);
+
+
+                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Btntrv_moneda.Tag);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda].Value = Convert.ToString(Txttrv_moneda.Text);
+                AcxControl.Rows[lIntItem].Cells[Col_trv_moneda_d].Value = Convert.ToString(Txttrv_moneda_Des.Text);
+
                 AcxControl.CurrentCell = AcxControl.Rows[lIntItem].Cells[1];
                 iBolCambiaEstatus = false;
                 this.Cursor = Cursors.Default;
@@ -1244,56 +1419,58 @@ namespace Presentacion.Facturacion
         {
             int lIntItem = 0;
             int lIntReturn = 0;
-            List<ENT_TRVENTAS_DET>  lLisENT_TRVENTAS_DET = new List<ENT_TRVENTAS_DET>();
+            List<ENT_TRVENTAS_DET> lLisENT_TRVENTAS_DET = new List<ENT_TRVENTAS_DET>();
             ENT_TRVENTAS_CAB lENT_TRVENTAS_CAB;
             ENT_TRVENTAS_DET lENT_TRVENTAS_DET;
             int lIntFila = 0;
             try
             {
-           lENT_TRVENTAS_CAB = new ENT_TRVENTAS_CAB();
-           lENT_TRVENTAS_CAB.trv_empresa = GlobalesVariables.company;
-           lENT_TRVENTAS_CAB.trv_periodo = Convert.ToString(Txttrv_periodo.Text);
-           lENT_TRVENTAS_CAB.trv_tipo = Convert.ToString(Txttrv_tipo.Text);
-           lENT_TRVENTAS_CAB.trv_registro = Convert.ToString(Txttrv_registro.Text);
-           lENT_TRVENTAS_CAB.trv_entidad = Convert.ToInt32(Txttrv_entidad.Text);
-           lENT_TRVENTAS_CAB.trv_idvendedor = Convert.ToInt32(Txttrv_idvendedor.Text);
-           lENT_TRVENTAS_CAB.trv_idformapago = Convert.ToInt32(Txttrv_idformapago.Text);
-           lENT_TRVENTAS_CAB.trv_tdoc = Convert.ToString(Txttrv_tdoc.Text);
-           lENT_TRVENTAS_CAB.trv_sdoc = Convert.ToString(Txttrv_sdoc.Text);
-           lENT_TRVENTAS_CAB.trv_ndoc = Convert.ToString(Txttrv_ndoc.Text);
-           lENT_TRVENTAS_CAB.trv_femision = Convert.ToDateTime(Txttrv_femision.Text);
-           lENT_TRVENTAS_CAB.trv_fvencimiento = Convert.ToDateTime(Txttrv_fvencimiento.Text);
-           lENT_TRVENTAS_CAB.trv_moneda = Convert.ToString(Txttrv_moneda.Text);
-           lENT_TRVENTAS_CAB.trv_tcambio = Convert.ToDecimal(Txttrv_tcambio.Text);
-           lENT_TRVENTAS_CAB.trv_dctos = Convert.ToDecimal(Txttrv_dctos.Text);
-           lENT_TRVENTAS_CAB.trv_vventa = Convert.ToDecimal(Txttrv_vventa.Text);
-           lENT_TRVENTAS_CAB.trv_igv = Convert.ToDecimal(Txttrv_igv.Text);
-           lENT_TRVENTAS_CAB.trv_total = Convert.ToDecimal(Txttrv_total.Text);
-           lENT_TRVENTAS_CAB.trv_aigv = Convert.ToInt32(Txttrv_aigv.Text);
-           lENT_TRVENTAS_CAB.trv_flag = Convert.ToInt32(Txttrv_flag.Text);
-           lENT_TRVENTAS_CAB.trv_pigv = Convert.ToDecimal(Txttrv_pigv.Text);
-            for (int lIntRow = 0; lIntRow < AcxDetalles.Rows.Count; lIntRow++){
-                lIntFila = lIntRow;
-                lENT_TRVENTAS_DET = new ENT_TRVENTAS_DET();
-                lENT_TRVENTAS_DET.trvd_empresa = GlobalesVariables.company;
-                lENT_TRVENTAS_DET.trvd_periodo = Convert.ToString(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_periodo].Value);
-                lENT_TRVENTAS_DET.trvd_tipo = Convert.ToString(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_tipo].Value);
-                lENT_TRVENTAS_DET.trvd_registro = Convert.ToString(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_registro].Value);
-                lENT_TRVENTAS_DET.trvd_nroitm = Convert.ToInt32(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_nroitm].Value);
-                lENT_TRVENTAS_DET.trvd_idarticulo = Convert.ToInt32(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_idarticulo].Value);
-                lENT_TRVENTAS_DET.trvd_cant = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_cant].Value);
-                lENT_TRVENTAS_DET.trvd_preun = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_preun].Value);
-                lENT_TRVENTAS_DET.trvd_pdcto = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_pdcto].Value);
-                lENT_TRVENTAS_DET.trvd_dcto = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_dcto].Value);
-                lENT_TRVENTAS_DET.trvd_vvta = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_vvta].Value);
-                lENT_TRVENTAS_DET.trvd_igv = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_igv].Value);
-                lENT_TRVENTAS_DET.trvd_tot = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_tot].Value);
-                lLisENT_TRVENTAS_DET.Add(lENT_TRVENTAS_DET);
-            }
-            if (LN_TRVENTAS_CAB.setInsertarTRVENTAS_CAB(lENT_TRVENTAS_CAB, lLisENT_TRVENTAS_DET, out lIntReturn))
-                return true;
-            else
-                return false;
+                lENT_TRVENTAS_CAB = new ENT_TRVENTAS_CAB();
+                lENT_TRVENTAS_CAB.trv_empresa = GlobalesVariables.company;
+                lENT_TRVENTAS_CAB.trv_periodo = Convert.ToString(Txttrv_periodo.Text);
+                lENT_TRVENTAS_CAB.trv_tipo = Convert.ToString(Btntrv_tipo.Tag);
+                lENT_TRVENTAS_CAB.trv_registro = Txttrv_mes.Value.ToString("MM") + Convert.ToString(Txttrv_registro.Text);
+                lENT_TRVENTAS_CAB.trv_entidad = Convert.ToInt32(Btntrv_entidad.Tag);
+                lENT_TRVENTAS_CAB.trv_idvendedor = Convert.ToInt32(Btntrv_idvendedor.Tag);
+                lENT_TRVENTAS_CAB.trv_idformapago = Convert.ToInt32(Btntrv_idformapago.Tag);
+                lENT_TRVENTAS_CAB.trv_tdoc = Convert.ToString(Btntrv_tdoc.Tag);
+                lENT_TRVENTAS_CAB.trv_sdoc = Convert.ToString(Btntrv_sdoc.Tag);
+                lENT_TRVENTAS_CAB.trv_ndoc = Convert.ToString(Txttrv_ndoc.Text);
+                lENT_TRVENTAS_CAB.trv_femision = Convert.ToDateTime(Txttrv_femision.Text);
+                lENT_TRVENTAS_CAB.trv_fvencimiento = Convert.ToDateTime(Txttrv_fvencimiento.Text);
+                lENT_TRVENTAS_CAB.trv_moneda = Convert.ToString(Btntrv_moneda.Tag);
+                lENT_TRVENTAS_CAB.trv_tcambio = Convert.ToDecimal(Txttrv_tcambio.Text);
+                lENT_TRVENTAS_CAB.trv_dctos = Convert.ToDecimal(Txttrv_dctos.Text);
+                lENT_TRVENTAS_CAB.trv_vventa = Convert.ToDecimal(Txttrv_vventa.Text);
+                lENT_TRVENTAS_CAB.trv_igv = Convert.ToDecimal(Txttrv_igv.Text);
+                lENT_TRVENTAS_CAB.trv_total = Convert.ToDecimal(Txttrv_total.Text);
+                lENT_TRVENTAS_CAB.trv_aigv = Convert.ToInt32(Txttrv_aigv.Checked);
+                lENT_TRVENTAS_CAB.trv_flag = Convert.ToInt32(Txttrv_flag.Checked);
+                lENT_TRVENTAS_CAB.trv_pigv = Convert.ToDecimal(Txttrv_pigv.Text);
+                for (int lIntRow = 0; lIntRow < AcxDetalles.Rows.Count; lIntRow++)
+                {
+                    lIntFila = lIntRow;
+                    lENT_TRVENTAS_DET = new ENT_TRVENTAS_DET();
+
+                    lENT_TRVENTAS_DET.trvd_empresa = GlobalesVariables.company;
+                    lENT_TRVENTAS_DET.trvd_periodo = Convert.ToString(Txttrv_periodo.Text);
+                    lENT_TRVENTAS_DET.trvd_tipo = Convert.ToString(Btntrv_tipo.Tag);
+                    lENT_TRVENTAS_DET.trvd_registro = Txttrv_mes.Value.ToString("MM") + Convert.ToString(Txttrv_registro.Text);
+                    lENT_TRVENTAS_DET.trvd_nroitm = lIntRow + 1;
+                    lENT_TRVENTAS_DET.trvd_idarticulo = Convert.ToInt32(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_idarticulo_Ayu].Tag);
+                    lENT_TRVENTAS_DET.trvd_cant = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_cant].Value);
+                    lENT_TRVENTAS_DET.trvd_preun = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_preun].Value);
+                    lENT_TRVENTAS_DET.trvd_pdcto = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_pdcto].Value);
+                    lENT_TRVENTAS_DET.trvd_dcto = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_dcto].Value);
+                    lENT_TRVENTAS_DET.trvd_vvta = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_vvta].Value);
+                    lENT_TRVENTAS_DET.trvd_igv = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_igv].Value);
+                    lENT_TRVENTAS_DET.trvd_tot = Convert.ToDecimal(AcxDetalles.Rows[lIntFila].Cells[Col_Det_trvd_tot].Value);
+                    lLisENT_TRVENTAS_DET.Add(lENT_TRVENTAS_DET);
+                }
+                if (LN_TRVENTAS_CAB.setInsertarTRVENTAS_CAB(lENT_TRVENTAS_CAB, lLisENT_TRVENTAS_DET, out lIntReturn))
+                    return true;
+                else
+                    return false;
             }
             catch (Exception ex)
             {
@@ -1328,125 +1505,125 @@ namespace Presentacion.Facturacion
             try
             {
                 this.Cursor = Cursors.WaitCursor;
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_periodo.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_periodo.Text + " ]";
-                    Txttrv_periodo.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_periodo.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_periodo.Text + " ]";
+                        Txttrv_periodo.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_tipo.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_tipo.Text + " ]";
-                    Txttrv_tipo.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_tipo.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_tipo.Text + " ]";
+                        Txttrv_tipo.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_registro.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_registro.Text + " ]";
-                    Txttrv_registro.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_registro.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_registro.Text + " ]";
+                        Txttrv_registro.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_entidad.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_entidad.Text + " ]";
-                    Txttrv_entidad.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_entidad.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_entidad.Text + " ]";
+                        Txttrv_entidad.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_idvendedor.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_idvendedor.Text + " ]";
-                    Txttrv_idvendedor.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_idvendedor.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_idvendedor.Text + " ]";
+                        Txttrv_idvendedor.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_idformapago.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_idformapago.Text + " ]";
-                    Txttrv_idformapago.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_idformapago.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_idformapago.Text + " ]";
+                        Txttrv_idformapago.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_tdoc.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_tdoc.Text + " ]";
-                    Txttrv_tdoc.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_tdoc.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_tdoc.Text + " ]";
+                        Txttrv_tdoc.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_sdoc.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_sdoc.Text + " ]";
-                    Txttrv_sdoc.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_sdoc.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_sdoc.Text + " ]";
+                        Txttrv_sdoc.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
 
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_femision.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_femision.Text + " ]";
-                    Txttrv_femision.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_femision.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_femision.Text + " ]";
+                        Txttrv_femision.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_fvencimiento.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_fvencimiento.Text + " ]";
-                    Txttrv_fvencimiento.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_fvencimiento.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_fvencimiento.Text + " ]";
+                        Txttrv_fvencimiento.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_moneda.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_moneda.Text + " ]";
-                    Txttrv_moneda.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_moneda.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_moneda.Text + " ]";
+                        Txttrv_moneda.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-            if (vChMsg == "")
-            {
-                if(iValidar.EsVacio(Txttrv_tcambio.Text))
+                if (vChMsg == "")
                 {
-                    vChMsg = "Debe especificar [ " + Lbltrv_tcambio.Text + " ]";
-                    Txttrv_tcambio.Focus();
-                    goto ContinuarAqui;
+                    if (iValidar.EsVacio(Txttrv_tcambio.Text))
+                    {
+                        vChMsg = "Debe especificar [ " + Lbltrv_tcambio.Text + " ]";
+                        Txttrv_tcambio.Focus();
+                        goto ContinuarAqui;
+                    }
                 }
-            }
-       
-                ContinuarAqui:
+
+            ContinuarAqui:
                 if (iConvertir.aString(vChMsg).Trim() != "")
                 {
                     this.Cursor = Cursors.Default;
                     TabControl1.SelectedIndex = 0;
                     //if (lIntItem != 0)
                     //{
-                        //AcxFicha.Items.EnsureVisibleItem(lIntItem);
-                        //AcxFicha.Items.SelectItem[lIntItem] = true;
+                    //AcxFicha.Items.EnsureVisibleItem(lIntItem);
+                    //AcxFicha.Items.SelectItem[lIntItem] = true;
                     //}
                     iUT_Telerik.setRadMensaje(vChMsg, "I", "Mensaje de la Aplicación");
                     //AcxFicha.EnsureVisibleColumn(lIntColu);
@@ -1472,7 +1649,7 @@ namespace Presentacion.Facturacion
         {
             int lIntAxgItem = 0;
             int lIntColumna = 0;
-            string lStrMsg = ""; 
+            string lStrMsg = "";
             try
             {
                 if (lStrMsg == "")
@@ -1487,123 +1664,87 @@ namespace Presentacion.Facturacion
                 for (int x = 0; x < AcxDetalles.Rows.Count; x++)
                 {
                     lIntAxgItem = x;
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_periodo;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                    if (lStrMsg == "")
                     {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
+                        lIntColumna = Col_Det_trvd_idarticulo;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_cant;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_preun;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_pdcto;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_dcto;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_vvta;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_igv;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
+                    }
+                    if (lStrMsg == "")
+                    {
+                        lIntColumna = Col_Det_trvd_tot;
+                        if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
+                        {
+                            lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
+                            goto ContinuarAqui;
+                        }
                     }
                 }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_tipo;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_registro;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_nroitm;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_idarticulo;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_cant;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_preun;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_pdcto;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_dcto;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_vvta;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_igv;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                if (lStrMsg == "")
-                {
-                    lIntColumna = Col_Det_trvd_tot;
-                    if (iValidar.EsVacio(AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Value))
-                    {
-                        lStrMsg = "Debe especificar" + ": " + AcxDetalles.Columns[lIntColumna].HeaderText;
-                        goto ContinuarAqui;
-                    }
-                }
-                }
-                ContinuarAqui:
+            ContinuarAqui:
                 if (lStrMsg != "")
                 {
                     this.Cursor = Cursors.Default;
                     iUT_Telerik.setRadMensaje(lStrMsg, "I");
                     if (lIntAxgItem != 0)
                     {
-                        AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Selected = true;;
+                        AcxDetalles.Rows[lIntAxgItem].Cells[lIntColumna].Selected = true; ;
                     }
                     AcxDetalles.Focus();
                     AcxDetalles.RefreshEdit();
@@ -1632,160 +1773,160 @@ namespace Presentacion.Facturacion
         #region Metodos_Ayuda_Validaciones
         private void AyudaTNIVEL_VENTA_trv_tipo()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tven_codigo", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tven_descripcion", "Descripción", 400, true, true, "TEXT", 70, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Nivel de Ventas";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TNIVEL_VENTA.getListarTNIVEL_VENTA(GlobalesVariables.company, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_tipo.Text = xlStrValores[0].Trim();
-                    //Txttrv_tipo_Des.Text = xlStrValores[1].Trim();
-                    ValidaTNIVEL_VENTA_trv_tipo();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tven_codigo", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tven_descripcion", "Descripción", 400, true, true, "TEXT", 70, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Nivel de Ventas";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TNIVEL_VENTA.getListarTNIVEL_VENTA(GlobalesVariables.company, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_tipo.Text = xlStrValores[0].Trim();
+                //Txttrv_tipo_Des.Text = xlStrValores[1].Trim();
+                ValidaTNIVEL_VENTA_trv_tipo();
+            }
         }
         private void AyudaTCTACTE_trv_entidad()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("c_ctacte", "Código", 166, true, true, "TEXT", 10, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_razon_social", "Razón Social", 400, true, true, "TEXT", 250, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Detalle de Cuenta Corriente";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TCTACTE.getListarTCTACTE(null, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_entidad.Text = xlStrValores[0].Trim();
-                    //Txttrv_entidad_Des.Text = xlStrValores[1].Trim();
-                    ValidaTCTACTE_trv_entidad();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("c_ctacte", "Código", 166, true, true, "TEXT", 10, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_razon_social", "Razón Social", 400, true, true, "TEXT", 250, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Detalle de Cuenta Corriente";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TCTACTE.getListarTCTACTE(null, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_entidad.Text = xlStrValores[0].Trim();
+                //Txttrv_entidad_Des.Text = xlStrValores[1].Trim();
+                ValidaTCTACTE_trv_entidad();
+            }
         }
         private void AyudaTVENDEDOR_trv_idvendedor()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("c_vendedor", "Código", 166, true, true, "TEXT", 10, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_nombre_vendedor", "Nombres", 400, true, true, "TEXT", 200, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Vendedores";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TVENDEDOR.getListarTVENDEDOR(null, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_idvendedor.Text = xlStrValores[0].Trim();
-                    //Txttrv_idvendedor_Des.Text = xlStrValores[1].Trim();
-                    ValidaTVENDEDOR_trv_idvendedor();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("c_vendedor", "Código", 166, true, true, "TEXT", 10, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_nombre_vendedor", "Nombres", 400, true, true, "TEXT", 200, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Vendedores";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TVENDEDOR.getListarTVENDEDOR(null, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_idvendedor.Text = xlStrValores[0].Trim();
+                //Txttrv_idvendedor_Des.Text = xlStrValores[1].Trim();
+                ValidaTVENDEDOR_trv_idvendedor();
+            }
         }
         private void AyudaTFORMA_PAGO_trv_idformapago()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("c_forma_pago", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_forma_pago", "Descripción", 400, true, true, "TEXT", 100, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Forma de Pagos";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TFORMA_PAGO.getListarTFORMA_PAGO(null, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_idformapago.Text = xlStrValores[0].Trim();
-                    //Txttrv_idformapago_Des.Text = xlStrValores[1].Trim();
-                    ValidaTFORMA_PAGO_trv_idformapago();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("c_forma_pago", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_forma_pago", "Descripción", 400, true, true, "TEXT", 100, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Forma de Pagos";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TFORMA_PAGO.getListarTFORMA_PAGO(null, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_idformapago.Text = xlStrValores[0].Trim();
+                //Txttrv_idformapago_Des.Text = xlStrValores[1].Trim();
+                ValidaTFORMA_PAGO_trv_idformapago();
+            }
         }
         private void AyudaTDOCUMENTOS_trv_tdoc()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_codigo", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_sigla", "Sigla", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_descripcion", "Descripción", 400, true, true, "TEXT", 60, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Tipos de Documentos";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TDOCUMENTOS.getListarTDOCUMENTOS(GlobalesVariables.company, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_tdoc.Text = xlStrValores[0].Trim();
-                    //Txttrv_tdoc_Des.Text = xlStrValores[1].Trim();
-                    ValidaTDOCUMENTOS_trv_tdoc();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_codigo", "Código", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_sigla", "Sigla", 166, true, true, "TEXT", 3, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tdoc_descripcion", "Descripción", 400, true, true, "TEXT", 60, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Tipos de Documentos";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TDOCUMENTOS.getListarTDOCUMENTOS(GlobalesVariables.company, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_tdoc.Text = xlStrValores[0].Trim();
+                //Txttrv_tdoc_Des.Text = xlStrValores[1].Trim();
+                ValidaTDOCUMENTOS_trv_tdoc();
+            }
         }
         private void AyudaTDOCUMENTOS_SERIES_trv_sdoc()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tdocs_serie", "Serie", 166, true, true, "TEXT", 4, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("tdocs_numerador", "Número", 166, true, true, "TEXT", 8, 0, "DERECHA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Serie de Documentos";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TDOCUMENTOS_SERIES.getListarTDOCUMENTOS_SERIES(GlobalesVariables.company, Txttrv_tdoc.Text, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_sdoc.Text = xlStrValores[0].Trim();
-                    //Txttrv_sdoc_Des.Text = xlStrValores[1].Trim();
-                    ValidaTDOCUMENTOS_SERIES_trv_sdoc();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tdocs_serie", "Serie", 166, true, true, "TEXT", 4, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("tdocs_numerador", "Número", 166, true, true, "TEXT", 8, 0, "DERECHA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Serie de Documentos";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TDOCUMENTOS_SERIES.getListarTDOCUMENTOS_SERIES(GlobalesVariables.company, Txttrv_tdoc.Text, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_sdoc.Text = xlStrValores[0].Trim();
+                //Txttrv_sdoc_Des.Text = xlStrValores[1].Trim();
+                ValidaTDOCUMENTOS_SERIES_trv_sdoc();
+            }
         }
         private void AyudaTMONEDAS_trv_moneda()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_cod", "Código", 166, true, true, "TEXT", 2, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_des", "Descripción", 300, true, true, "TEXT", 60, 0, "IZQUIERDA", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_sigla", "Sigla", 166, true, true, "TEXT", 10, 0, "IZQUIERDA", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_abrev", "Abreviatura", 166, true, true, "TEXT", 50, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda de Monedas";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TMONEDAS.getListarTMONEDAS(null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    Txttrv_moneda.Text = xlStrValores[0].Trim();
-                    //Txttrv_moneda_Des.Text = xlStrValores[1].Trim();
-                    ValidaTMONEDAS_trv_moneda();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_cod", "Código", 166, true, true, "TEXT", 2, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_des", "Descripción", 300, true, true, "TEXT", 60, 0, "IZQUIERDA", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_sigla", "Sigla", 166, true, true, "TEXT", 10, 0, "IZQUIERDA", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("mnd_abrev", "Abreviatura", 166, true, true, "TEXT", 50, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda de Monedas";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TMONEDAS.getListarTMONEDAS(null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                Txttrv_moneda.Text = xlStrValores[0].Trim();
+                //Txttrv_moneda_Des.Text = xlStrValores[1].Trim();
+                ValidaTMONEDAS_trv_moneda();
+            }
         }
         private void AyudaTARTICULO_trvd_idarticulo_Detalle()
         {
-                string[] xlStrValores;
-                List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("c_articulo", "Código", 166, true, true, "TEXT", 20, 0, "CENTRO", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_articulo", "Descripción", 350, true, true, "TEXT", 240, 0, "IZQUIERDA", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_articulo_tecnico", "Descripción Técnico", 250, true, true, "TEXT", 240, 0, "IZQUIERDA", "", "", false));
-                vClsColumnsGrilla.Add(new clsColumnsGrilla("t_marca", "Marca", 166, true, true, "TEXT", 50, 0, "IZQUIERDA", "", "", false));
-                HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
-                MiFrmNuevo.pChTitulo = "Ayuda Tabla de Articulos";
-                MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
-                MiFrmNuevo.vLisEntidades = LN_TARTICULO.getListarTARTICULO(null, null).Cast<object>().ToList();
-                MiFrmNuevo.ShowDialog();
-                if (MiFrmNuevo.pChRetorno.Trim() != "")
-                {
-                    xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
-                    this.AcxDetalles.Rows[AcxDetalles.CurrentRow.Index].Cells[Col_Det_trvd_idarticulo].Value = xlStrValores[0].Trim();
-                    //Txttrvd_idarticulo_Des.Text = xlStrValores[1].Trim();
-                    ValidaTARTICULO_trvd_idarticulo_Detalle();
-                }
+            string[] xlStrValores;
+            List<clsColumnsGrilla> vClsColumnsGrilla = new List<clsColumnsGrilla>();
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("c_articulo", "Código", 166, true, true, "TEXT", 20, 0, "CENTRO", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_articulo", "Descripción", 350, true, true, "TEXT", 240, 0, "IZQUIERDA", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_articulo_tecnico", "Descripción Técnico", 250, true, true, "TEXT", 240, 0, "IZQUIERDA", "", "", false));
+            vClsColumnsGrilla.Add(new clsColumnsGrilla("t_marca", "Marca", 166, true, true, "TEXT", 50, 0, "IZQUIERDA", "", "", false));
+            HLP_GENERALI MiFrmNuevo = new HLP_GENERALI();
+            MiFrmNuevo.pChTitulo = "Ayuda Tabla de Articulos";
+            MiFrmNuevo.vClsColumnsGrilla = vClsColumnsGrilla;
+            MiFrmNuevo.vLisEntidades = LN_TARTICULO.getListarTARTICULO(null, null).Cast<object>().ToList();
+            MiFrmNuevo.ShowDialog();
+            if (MiFrmNuevo.pChRetorno.Trim() != "")
+            {
+                xlStrValores = MiFrmNuevo.pChRetorno.Split('|');
+                this.AcxDetalles.Rows[AcxDetalles.CurrentRow.Index].Cells[Col_Det_trvd_idarticulo].Value = xlStrValores[0].Trim();
+                //Txttrvd_idarticulo_Des.Text = xlStrValores[1].Trim();
+                ValidaTARTICULO_trvd_idarticulo_Detalle();
+            }
         }
         private void ValidaTNIVEL_VENTA_trv_tipo()
         {
@@ -1795,6 +1936,7 @@ namespace Presentacion.Facturacion
                 Btntrv_tipo.Tag = vEntities.ToList()[0].tven_codigo.ToString();
                 Txttrv_tipo.Text = vEntities.ToList()[0].tven_codigo.ToString();
                 Txttrv_tipo_Des.Text = vEntities.ToList()[0].tven_descripcion.ToString();
+                GeneraRegistro();
             }
             else
             {
@@ -1924,6 +2066,57 @@ namespace Presentacion.Facturacion
             }
         }
         #endregion Metodos_Ayuda_Validaciones
+        private void GeneraRegistro()
+        {
+            int? lIntResult = 0;
+            int lIntReturn = 0;
+            List<ENT_TRVENTAS_CAB> lLisTRVENTAS_CAB = null;
+            lLisTRVENTAS_CAB = LN_TRVENTAS_CAB.getListarTRVENTAS_CAB(GlobalesVariables.company, Convert.ToString(Txttrv_periodo.Value.ToString("yyyy")), Convert.ToString(Txttrv_tipo.Text.ToString().Trim()), null);
+            if (lLisTRVENTAS_CAB.ToList().Count == 0)
+            {
+                lIntReturn = 0;
+            }
+            else
+            {
+                lIntResult = (from LE in lLisTRVENTAS_CAB where LE.trv_registro.Substring(0, 2) == Convert.ToString(Txttrv_mes.Value.ToString("MM")) select Convert.ToInt32(LE.trv_registro.Substring(2, 6))).ToList().Max();
+                if (lIntResult == null)
+                    lIntReturn = 0;
+                else
+                    lIntReturn = Convert.ToInt32(lIntResult);
+            }
+            Txttrv_registro.Text = ("000000").Substring(0, 6 - (lIntReturn + 1).ToString().Length) + (lIntReturn + 1).ToString();
+        }
+
+        private void Totales()
+        {
+            decimal lDecIgv = Txttrv_pigv.Value;
+            decimal lDecTotDescuento = 0;
+            decimal lDecTotBase = 0;
+            decimal lDecTotIgv = 0;
+            decimal lDecTotVenta = 0;
+            for (int lIntRow = 0; lIntRow < AcxDetalles.Rows.Count; lIntRow++)
+            {
+                decimal lDecCantidad = iConvertir.aDecimal(this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_cant].Value);
+                decimal lDecPrecio = iConvertir.aDecimal(this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_preun].Value);
+                decimal lDecPorDescue = iConvertir.aDecimal(this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_pdcto].Value) / 100;
+                decimal lDecTotDescue = lDecPorDescue * (lDecCantidad * lDecPrecio);
+                decimal lDecBase = (lDecCantidad * lDecPrecio) - lDecTotDescue;
+                decimal lDecValIgv = Txttrv_aigv.Checked == true ? lDecBase * lDecIgv : 0;
+                decimal lDecTotal = lDecBase + lDecValIgv;
+                this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_dcto].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotDescue);
+                this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_vvta].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecBase);
+                this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_igv].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecValIgv);
+                this.AcxDetalles.Rows[lIntRow].Cells[Col_Det_trvd_tot].Value = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotal);
+                lDecTotDescuento += lDecTotDescue;
+                lDecTotBase += lDecBase;
+                lDecTotIgv += lDecValIgv;
+                lDecTotVenta += lDecTotal;
+            }
+            Txttrv_dctos.Text = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotDescuento);
+            Txttrv_vventa.Text = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotBase);
+            Txttrv_igv.Text = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotIgv);
+            Txttrv_total.Text = string.Format(GlobalesVariables._formatonumerosmillares2decimales, lDecTotVenta);
+        }
         #endregion
     }
 }

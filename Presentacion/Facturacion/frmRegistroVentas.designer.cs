@@ -31,9 +31,11 @@ namespace Presentacion.Facturacion
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.RadSplitContainer2 = new System.Windows.Forms.SplitContainer();
             this.GrpClave = new System.Windows.Forms.GroupBox();
+            this.Txttrv_mes = new System.Windows.Forms.DateTimePicker();
+            this.Lbltrv_mes = new System.Windows.Forms.Label();
             this.Lbltrv_periodo = new System.Windows.Forms.Label();
             this.Txttrv_registro = new System.Windows.Forms.TextBox();
-            this.Txttrv_periodo = new System.Windows.Forms.TextBox();
+            this.Txttrv_periodo = new System.Windows.Forms.DateTimePicker();
             this.Lbltrv_registro = new System.Windows.Forms.Label();
             this.Lbltrv_tipo = new System.Windows.Forms.Label();
             this.Txttrv_tipo_Des = new System.Windows.Forms.TextBox();
@@ -60,29 +62,19 @@ namespace Presentacion.Facturacion
             this.Btntrv_sdoc = new System.Windows.Forms.Button();
             this.Txttrv_ndoc = new System.Windows.Forms.TextBox();
             this.Lbltrv_femision = new System.Windows.Forms.Label();
-            this.Txttrv_femision = new System.Windows.Forms.TextBox();
+            this.Txttrv_femision = new System.Windows.Forms.DateTimePicker();
             this.Lbltrv_fvencimiento = new System.Windows.Forms.Label();
-            this.Txttrv_fvencimiento = new System.Windows.Forms.TextBox();
+            this.Txttrv_fvencimiento = new System.Windows.Forms.DateTimePicker();
             this.Lbltrv_moneda = new System.Windows.Forms.Label();
             this.Txttrv_moneda = new System.Windows.Forms.TextBox();
             this.Btntrv_moneda = new System.Windows.Forms.Button();
             this.Txttrv_moneda_Des = new System.Windows.Forms.TextBox();
             this.Lbltrv_tcambio = new System.Windows.Forms.Label();
-            this.Txttrv_tcambio = new System.Windows.Forms.TextBox();
-            this.Lbltrv_dctos = new System.Windows.Forms.Label();
-            this.Txttrv_dctos = new System.Windows.Forms.TextBox();
-            this.Lbltrv_vventa = new System.Windows.Forms.Label();
-            this.Txttrv_vventa = new System.Windows.Forms.TextBox();
-            this.Lbltrv_igv = new System.Windows.Forms.Label();
-            this.Txttrv_igv = new System.Windows.Forms.TextBox();
-            this.Lbltrv_total = new System.Windows.Forms.Label();
-            this.Txttrv_total = new System.Windows.Forms.TextBox();
+            this.Txttrv_tcambio = new System.Windows.Forms.NumericUpDown();
             this.Lbltrv_aigv = new System.Windows.Forms.Label();
-            this.Txttrv_aigv = new System.Windows.Forms.TextBox();
+            this.Txttrv_aigv = new System.Windows.Forms.CheckBox();
             this.Lbltrv_flag = new System.Windows.Forms.Label();
-            this.Txttrv_flag = new System.Windows.Forms.TextBox();
-            this.Lbltrv_pigv = new System.Windows.Forms.Label();
-            this.Txttrv_pigv = new System.Windows.Forms.TextBox();
+            this.Txttrv_flag = new System.Windows.Forms.CheckBox();
             this.ToolDetalles = new System.Windows.Forms.ToolStrip();
             this.Tlb_D_Nuevo = new System.Windows.Forms.ToolStripButton();
             this.ToolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -91,6 +83,16 @@ namespace Presentacion.Facturacion
             this.Tlb_D_Duplica = new System.Windows.Forms.ToolStripButton();
             this.Tol_Moneda = new System.Windows.Forms.ToolStripLabel();
             this.AcxDetalles = new System.Windows.Forms.DataGridView();
+            this.Txttrv_vventa = new System.Windows.Forms.TextBox();
+            this.Lbltrv_pigv = new System.Windows.Forms.Label();
+            this.Txttrv_total = new System.Windows.Forms.TextBox();
+            this.Txttrv_pigv = new System.Windows.Forms.NumericUpDown();
+            this.Lbltrv_total = new System.Windows.Forms.Label();
+            this.Lbltrv_dctos = new System.Windows.Forms.Label();
+            this.Txttrv_igv = new System.Windows.Forms.TextBox();
+            this.Txttrv_dctos = new System.Windows.Forms.TextBox();
+            this.Lbltrv_igv = new System.Windows.Forms.Label();
+            this.Lbltrv_vventa = new System.Windows.Forms.Label();
             this.Mnu_Principal = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Adicionar = new System.Windows.Forms.ToolStripMenuItem();
             this.Mnu_Modificar = new System.Windows.Forms.ToolStripMenuItem();
@@ -136,8 +138,10 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.Panel2.SuspendLayout();
             this.RadSplitContainer2.SuspendLayout();
             this.GrpClave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txttrv_tcambio)).BeginInit();
             this.ToolDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcxDetalles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txttrv_pigv)).BeginInit();
             this.MenuStrip1.SuspendLayout();
             this.MiToolBar.SuspendLayout();
             this.SuspendLayout();
@@ -235,7 +239,7 @@ namespace Presentacion.Facturacion
             this.TabControl1.Location = new System.Drawing.Point(0, 52);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(944, 650);
+            this.TabControl1.Size = new System.Drawing.Size(944, 679);
             this.TabControl1.TabIndex = 38;
             // 
             // TabPage1
@@ -244,7 +248,7 @@ namespace Presentacion.Facturacion
             this.TabPage1.Location = new System.Drawing.Point(4, 24);
             this.TabPage1.Name = "TabPage1";
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage1.Size = new System.Drawing.Size(936, 622);
+            this.TabPage1.Size = new System.Drawing.Size(936, 287);
             this.TabPage1.TabIndex = 0;
             this.TabPage1.Text = "Información del General";
             this.TabPage1.UseVisualStyleBackColor = true;
@@ -256,7 +260,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxControl.Location = new System.Drawing.Point(0, 3);
             this.AcxControl.Name = "AcxControl";
-            this.AcxControl.Size = new System.Drawing.Size(933, 616);
+            this.AcxControl.Size = new System.Drawing.Size(933, 281);
             this.AcxControl.TabIndex = 38;
             this.AcxControl.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxControl_CellBeginEdit);
             this.AcxControl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxControl_CellContentClick);
@@ -271,7 +275,7 @@ namespace Presentacion.Facturacion
             this.TabPage2.Location = new System.Drawing.Point(4, 24);
             this.TabPage2.Name = "TabPage2";
             this.TabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage2.Size = new System.Drawing.Size(936, 622);
+            this.TabPage2.Size = new System.Drawing.Size(936, 651);
             this.TabPage2.TabIndex = 1;
             this.TabPage2.Text = "Información del Registro(Ficha de Datos)";
             this.TabPage2.UseVisualStyleBackColor = true;
@@ -316,32 +320,34 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_moneda_Des);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_tcambio);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_tcambio);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_dctos);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_dctos);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_vventa);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_vventa);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_igv);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_igv);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_total);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_total);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_aigv);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_aigv);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_flag);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_flag);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_pigv);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_pigv);
             // 
             // RadSplitContainer2.Panel2
             // 
             this.RadSplitContainer2.Panel2.Controls.Add(this.ToolDetalles);
             this.RadSplitContainer2.Panel2.Controls.Add(this.AcxDetalles);
-            this.RadSplitContainer2.Size = new System.Drawing.Size(930, 616);
-            this.RadSplitContainer2.SplitterDistance = 283;
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_vventa);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_pigv);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_total);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_pigv);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_total);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_dctos);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_igv);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_dctos);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_igv);
+            this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_vventa);
+            this.RadSplitContainer2.Size = new System.Drawing.Size(930, 645);
+            this.RadSplitContainer2.SplitterDistance = 170;
             this.RadSplitContainer2.TabIndex = 68;
             this.RadSplitContainer2.TabStop = false;
             // 
             // GrpClave
             // 
+            this.GrpClave.Controls.Add(this.Txttrv_mes);
+            this.GrpClave.Controls.Add(this.Lbltrv_mes);
             this.GrpClave.Controls.Add(this.Lbltrv_periodo);
             this.GrpClave.Controls.Add(this.Txttrv_registro);
             this.GrpClave.Controls.Add(this.Txttrv_periodo);
@@ -356,6 +362,25 @@ namespace Presentacion.Facturacion
             this.GrpClave.TabIndex = 4;
             this.GrpClave.TabStop = false;
             // 
+            // Txttrv_mes
+            // 
+            this.Txttrv_mes.CustomFormat = "MM";
+            this.Txttrv_mes.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Txttrv_mes.Location = new System.Drawing.Point(636, 19);
+            this.Txttrv_mes.Name = "Txttrv_mes";
+            this.Txttrv_mes.Size = new System.Drawing.Size(44, 23);
+            this.Txttrv_mes.TabIndex = 5;
+            this.Txttrv_mes.ValueChanged += new System.EventHandler(this.Txttrv_mes_ValueChanged);
+            // 
+            // Lbltrv_mes
+            // 
+            this.Lbltrv_mes.AutoSize = true;
+            this.Lbltrv_mes.Location = new System.Drawing.Point(598, 23);
+            this.Lbltrv_mes.Name = "Lbltrv_mes";
+            this.Lbltrv_mes.Size = new System.Drawing.Size(35, 15);
+            this.Lbltrv_mes.TabIndex = 4;
+            this.Lbltrv_mes.Text = "Mes: ";
+            // 
             // Lbltrv_periodo
             // 
             this.Lbltrv_periodo.AutoSize = true;
@@ -367,24 +392,27 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_registro
             // 
-            this.Txttrv_registro.Location = new System.Drawing.Point(707, 20);
+            this.Txttrv_registro.Location = new System.Drawing.Point(811, 20);
             this.Txttrv_registro.MaxLength = 8;
             this.Txttrv_registro.Name = "Txttrv_registro";
+            this.Txttrv_registro.ReadOnly = true;
             this.Txttrv_registro.Size = new System.Drawing.Size(100, 23);
             this.Txttrv_registro.TabIndex = 1;
             // 
             // Txttrv_periodo
             // 
+            this.Txttrv_periodo.CustomFormat = "yyyy";
+            this.Txttrv_periodo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Txttrv_periodo.Location = new System.Drawing.Point(75, 16);
-            this.Txttrv_periodo.MaxLength = 4;
             this.Txttrv_periodo.Name = "Txttrv_periodo";
             this.Txttrv_periodo.Size = new System.Drawing.Size(58, 23);
             this.Txttrv_periodo.TabIndex = 1;
+            this.Txttrv_periodo.ValueChanged += new System.EventHandler(this.Txttrv_periodo_ValueChanged);
             // 
             // Lbltrv_registro
             // 
             this.Lbltrv_registro.AutoSize = true;
-            this.Lbltrv_registro.Location = new System.Drawing.Point(598, 24);
+            this.Lbltrv_registro.Location = new System.Drawing.Point(702, 24);
             this.Lbltrv_registro.Name = "Lbltrv_registro";
             this.Lbltrv_registro.Size = new System.Drawing.Size(103, 15);
             this.Lbltrv_registro.TabIndex = 0;
@@ -409,7 +437,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_tipo
             // 
-            this.Txttrv_tipo.Location = new System.Drawing.Point(219, 19);
+            this.Txttrv_tipo.Location = new System.Drawing.Point(219, 18);
             this.Txttrv_tipo.MaxLength = 3;
             this.Txttrv_tipo.Name = "Txttrv_tipo";
             this.Txttrv_tipo.Size = new System.Drawing.Size(51, 23);
@@ -431,7 +459,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_entidad
             // 
             this.Lbltrv_entidad.AutoSize = true;
-            this.Lbltrv_entidad.Location = new System.Drawing.Point(15, 90);
+            this.Lbltrv_entidad.Location = new System.Drawing.Point(73, 90);
             this.Lbltrv_entidad.Name = "Lbltrv_entidad";
             this.Lbltrv_entidad.Size = new System.Drawing.Size(60, 15);
             this.Lbltrv_entidad.TabIndex = 0;
@@ -469,7 +497,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_idvendedor
             // 
             this.Lbltrv_idvendedor.AutoSize = true;
-            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(15, 115);
+            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(57, 115);
             this.Lbltrv_idvendedor.Name = "Lbltrv_idvendedor";
             this.Lbltrv_idvendedor.Size = new System.Drawing.Size(76, 15);
             this.Lbltrv_idvendedor.TabIndex = 0;
@@ -507,7 +535,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_idformapago
             // 
             this.Lbltrv_idformapago.AutoSize = true;
-            this.Lbltrv_idformapago.Location = new System.Drawing.Point(15, 140);
+            this.Lbltrv_idformapago.Location = new System.Drawing.Point(43, 140);
             this.Lbltrv_idformapago.Name = "Lbltrv_idformapago";
             this.Lbltrv_idformapago.Size = new System.Drawing.Size(90, 15);
             this.Lbltrv_idformapago.TabIndex = 0;
@@ -615,7 +643,6 @@ namespace Presentacion.Facturacion
             this.Txttrv_ndoc.Location = new System.Drawing.Point(585, 161);
             this.Txttrv_ndoc.MaxLength = 10;
             this.Txttrv_ndoc.Name = "Txttrv_ndoc";
-            this.Txttrv_ndoc.ReadOnly = true;
             this.Txttrv_ndoc.Size = new System.Drawing.Size(100, 23);
             this.Txttrv_ndoc.TabIndex = 1;
             // 
@@ -630,8 +657,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_femision
             // 
+            this.Txttrv_femision.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Txttrv_femision.Location = new System.Drawing.Point(535, 137);
-            this.Txttrv_femision.MaxLength = 0;
             this.Txttrv_femision.Name = "Txttrv_femision";
             this.Txttrv_femision.Size = new System.Drawing.Size(100, 23);
             this.Txttrv_femision.TabIndex = 1;
@@ -647,8 +674,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_fvencimiento
             // 
+            this.Txttrv_fvencimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.Txttrv_fvencimiento.Location = new System.Drawing.Point(760, 137);
-            this.Txttrv_fvencimiento.MaxLength = 0;
             this.Txttrv_fvencimiento.Name = "Txttrv_fvencimiento";
             this.Txttrv_fvencimiento.Size = new System.Drawing.Size(100, 23);
             this.Txttrv_fvencimiento.TabIndex = 1;
@@ -702,83 +729,27 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_tcambio
             // 
+            this.Txttrv_tcambio.DecimalPlaces = 3;
             this.Txttrv_tcambio.Location = new System.Drawing.Point(491, 186);
-            this.Txttrv_tcambio.MaxLength = 7;
+            this.Txttrv_tcambio.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.Txttrv_tcambio.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.Txttrv_tcambio.Name = "Txttrv_tcambio";
-            this.Txttrv_tcambio.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_tcambio.Size = new System.Drawing.Size(73, 23);
             this.Txttrv_tcambio.TabIndex = 1;
-            // 
-            // Lbltrv_dctos
-            // 
-            this.Lbltrv_dctos.AutoSize = true;
-            this.Lbltrv_dctos.Location = new System.Drawing.Point(249, 235);
-            this.Lbltrv_dctos.Name = "Lbltrv_dctos";
-            this.Lbltrv_dctos.Size = new System.Drawing.Size(102, 15);
-            this.Lbltrv_dctos.TabIndex = 0;
-            this.Lbltrv_dctos.Text = "Total Descuentos: ";
-            // 
-            // Txttrv_dctos
-            // 
-            this.Txttrv_dctos.Location = new System.Drawing.Point(249, 251);
-            this.Txttrv_dctos.MaxLength = 20;
-            this.Txttrv_dctos.Name = "Txttrv_dctos";
-            this.Txttrv_dctos.ReadOnly = true;
-            this.Txttrv_dctos.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_dctos.TabIndex = 1;
-            // 
-            // Lbltrv_vventa
-            // 
-            this.Lbltrv_vventa.AutoSize = true;
-            this.Lbltrv_vventa.Location = new System.Drawing.Point(371, 235);
-            this.Lbltrv_vventa.Name = "Lbltrv_vventa";
-            this.Lbltrv_vventa.Size = new System.Drawing.Size(94, 15);
-            this.Lbltrv_vventa.TabIndex = 0;
-            this.Lbltrv_vventa.Text = "Base Imponible: ";
-            // 
-            // Txttrv_vventa
-            // 
-            this.Txttrv_vventa.Location = new System.Drawing.Point(371, 251);
-            this.Txttrv_vventa.MaxLength = 20;
-            this.Txttrv_vventa.Name = "Txttrv_vventa";
-            this.Txttrv_vventa.ReadOnly = true;
-            this.Txttrv_vventa.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_vventa.TabIndex = 1;
-            // 
-            // Lbltrv_igv
-            // 
-            this.Lbltrv_igv.AutoSize = true;
-            this.Lbltrv_igv.Location = new System.Drawing.Point(528, 235);
-            this.Lbltrv_igv.Name = "Lbltrv_igv";
-            this.Lbltrv_igv.Size = new System.Drawing.Size(29, 15);
-            this.Lbltrv_igv.TabIndex = 0;
-            this.Lbltrv_igv.Text = "Igv: ";
-            // 
-            // Txttrv_igv
-            // 
-            this.Txttrv_igv.Location = new System.Drawing.Point(488, 252);
-            this.Txttrv_igv.MaxLength = 20;
-            this.Txttrv_igv.Name = "Txttrv_igv";
-            this.Txttrv_igv.ReadOnly = true;
-            this.Txttrv_igv.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_igv.TabIndex = 1;
-            // 
-            // Lbltrv_total
-            // 
-            this.Lbltrv_total.AutoSize = true;
-            this.Lbltrv_total.Location = new System.Drawing.Point(642, 235);
-            this.Lbltrv_total.Name = "Lbltrv_total";
-            this.Lbltrv_total.Size = new System.Drawing.Size(70, 15);
-            this.Lbltrv_total.TabIndex = 0;
-            this.Lbltrv_total.Text = "Total Venta: ";
-            // 
-            // Txttrv_total
-            // 
-            this.Txttrv_total.Location = new System.Drawing.Point(612, 253);
-            this.Txttrv_total.MaxLength = 20;
-            this.Txttrv_total.Name = "Txttrv_total";
-            this.Txttrv_total.ReadOnly = true;
-            this.Txttrv_total.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_total.TabIndex = 1;
+            this.Txttrv_tcambio.Value = new decimal(new int[] {
+            3789,
+            0,
+            0,
+            196608});
+            this.Txttrv_tcambio.ValueChanged += new System.EventHandler(this.Txttrv_tcambio_ValueChanged);
             // 
             // Lbltrv_aigv
             // 
@@ -792,44 +763,26 @@ namespace Presentacion.Facturacion
             // Txttrv_aigv
             // 
             this.Txttrv_aigv.Location = new System.Drawing.Point(749, 87);
-            this.Txttrv_aigv.MaxLength = 10;
             this.Txttrv_aigv.Name = "Txttrv_aigv";
-            this.Txttrv_aigv.Size = new System.Drawing.Size(41, 23);
+            this.Txttrv_aigv.Size = new System.Drawing.Size(18, 23);
             this.Txttrv_aigv.TabIndex = 1;
+            this.Txttrv_aigv.CheckedChanged += new System.EventHandler(this.Txttrv_aigv_CheckedChanged);
             // 
             // Lbltrv_flag
             // 
             this.Lbltrv_flag.AutoSize = true;
-            this.Lbltrv_flag.Location = new System.Drawing.Point(796, 91);
+            this.Lbltrv_flag.Location = new System.Drawing.Point(826, 91);
             this.Lbltrv_flag.Name = "Lbltrv_flag";
-            this.Lbltrv_flag.Size = new System.Drawing.Size(83, 15);
+            this.Lbltrv_flag.Size = new System.Drawing.Size(47, 15);
             this.Lbltrv_flag.TabIndex = 0;
-            this.Lbltrv_flag.Text = "Flag Anulado: ";
+            this.Lbltrv_flag.Text = "Activo: ";
             // 
             // Txttrv_flag
             // 
             this.Txttrv_flag.Location = new System.Drawing.Point(879, 87);
-            this.Txttrv_flag.MaxLength = 10;
             this.Txttrv_flag.Name = "Txttrv_flag";
-            this.Txttrv_flag.Size = new System.Drawing.Size(39, 23);
+            this.Txttrv_flag.Size = new System.Drawing.Size(24, 23);
             this.Txttrv_flag.TabIndex = 1;
-            // 
-            // Lbltrv_pigv
-            // 
-            this.Lbltrv_pigv.AutoSize = true;
-            this.Lbltrv_pigv.Location = new System.Drawing.Point(119, 235);
-            this.Lbltrv_pigv.Name = "Lbltrv_pigv";
-            this.Lbltrv_pigv.Size = new System.Drawing.Size(88, 15);
-            this.Lbltrv_pigv.TabIndex = 0;
-            this.Lbltrv_pigv.Text = "Porcentaje Igv: ";
-            // 
-            // Txttrv_pigv
-            // 
-            this.Txttrv_pigv.Location = new System.Drawing.Point(119, 253);
-            this.Txttrv_pigv.MaxLength = 7;
-            this.Txttrv_pigv.Name = "Txttrv_pigv";
-            this.Txttrv_pigv.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_pigv.TabIndex = 1;
             // 
             // ToolDetalles
             // 
@@ -899,7 +852,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxDetalles.Location = new System.Drawing.Point(3, 28);
             this.AcxDetalles.Name = "AcxDetalles";
-            this.AcxDetalles.Size = new System.Drawing.Size(927, 298);
+            this.AcxDetalles.Size = new System.Drawing.Size(927, 425);
             this.AcxDetalles.TabIndex = 66;
             this.AcxDetalles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxDetalles_CellBeginEdit);
             this.AcxDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxDetalles_CellContentClick);
@@ -908,6 +861,106 @@ namespace Presentacion.Facturacion
             this.AcxDetalles.CellValidating += new System.Windows.Forms.DataGridViewCellValidatingEventHandler(this.AcxDetalles_CellValidating);
             this.AcxDetalles.EditingControlShowing += new System.Windows.Forms.DataGridViewEditingControlShowingEventHandler(this.AcxDetalles_EditingControlShowing);
             this.AcxDetalles.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AcxDetalles_KeyDown);
+            // 
+            // Txttrv_vventa
+            // 
+            this.Txttrv_vventa.Location = new System.Drawing.Point(493, 365);
+            this.Txttrv_vventa.MaxLength = 20;
+            this.Txttrv_vventa.Name = "Txttrv_vventa";
+            this.Txttrv_vventa.ReadOnly = true;
+            this.Txttrv_vventa.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_vventa.TabIndex = 1;
+            // 
+            // Lbltrv_pigv
+            // 
+            this.Lbltrv_pigv.AutoSize = true;
+            this.Lbltrv_pigv.Location = new System.Drawing.Point(31, 370);
+            this.Lbltrv_pigv.Name = "Lbltrv_pigv";
+            this.Lbltrv_pigv.Size = new System.Drawing.Size(45, 15);
+            this.Lbltrv_pigv.TabIndex = 0;
+            this.Lbltrv_pigv.Text = "Igv % : ";
+            // 
+            // Txttrv_total
+            // 
+            this.Txttrv_total.Location = new System.Drawing.Point(839, 365);
+            this.Txttrv_total.MaxLength = 20;
+            this.Txttrv_total.Name = "Txttrv_total";
+            this.Txttrv_total.ReadOnly = true;
+            this.Txttrv_total.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_total.TabIndex = 1;
+            // 
+            // Txttrv_pigv
+            // 
+            this.Txttrv_pigv.DecimalPlaces = 2;
+            this.Txttrv_pigv.Location = new System.Drawing.Point(82, 365);
+            this.Txttrv_pigv.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.Txttrv_pigv.Name = "Txttrv_pigv";
+            this.Txttrv_pigv.Size = new System.Drawing.Size(75, 23);
+            this.Txttrv_pigv.TabIndex = 1;
+            this.Txttrv_pigv.Value = new decimal(new int[] {
+            1800,
+            0,
+            0,
+            131072});
+            this.Txttrv_pigv.ValueChanged += new System.EventHandler(this.Txttrv_pigv_ValueChanged);
+            // 
+            // Lbltrv_total
+            // 
+            this.Lbltrv_total.AutoSize = true;
+            this.Lbltrv_total.Location = new System.Drawing.Point(758, 370);
+            this.Lbltrv_total.Name = "Lbltrv_total";
+            this.Lbltrv_total.Size = new System.Drawing.Size(70, 15);
+            this.Lbltrv_total.TabIndex = 0;
+            this.Lbltrv_total.Text = "Total Venta: ";
+            // 
+            // Lbltrv_dctos
+            // 
+            this.Lbltrv_dctos.AutoSize = true;
+            this.Lbltrv_dctos.Location = new System.Drawing.Point(170, 370);
+            this.Lbltrv_dctos.Name = "Lbltrv_dctos";
+            this.Lbltrv_dctos.Size = new System.Drawing.Size(102, 15);
+            this.Lbltrv_dctos.TabIndex = 0;
+            this.Lbltrv_dctos.Text = "Total Descuentos: ";
+            // 
+            // Txttrv_igv
+            // 
+            this.Txttrv_igv.Location = new System.Drawing.Point(652, 365);
+            this.Txttrv_igv.MaxLength = 20;
+            this.Txttrv_igv.Name = "Txttrv_igv";
+            this.Txttrv_igv.ReadOnly = true;
+            this.Txttrv_igv.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_igv.TabIndex = 1;
+            // 
+            // Txttrv_dctos
+            // 
+            this.Txttrv_dctos.Location = new System.Drawing.Point(278, 365);
+            this.Txttrv_dctos.MaxLength = 20;
+            this.Txttrv_dctos.Name = "Txttrv_dctos";
+            this.Txttrv_dctos.ReadOnly = true;
+            this.Txttrv_dctos.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_dctos.TabIndex = 1;
+            // 
+            // Lbltrv_igv
+            // 
+            this.Lbltrv_igv.AutoSize = true;
+            this.Lbltrv_igv.Location = new System.Drawing.Point(612, 370);
+            this.Lbltrv_igv.Name = "Lbltrv_igv";
+            this.Lbltrv_igv.Size = new System.Drawing.Size(29, 15);
+            this.Lbltrv_igv.TabIndex = 0;
+            this.Lbltrv_igv.Text = "Igv: ";
+            // 
+            // Lbltrv_vventa
+            // 
+            this.Lbltrv_vventa.AutoSize = true;
+            this.Lbltrv_vventa.Location = new System.Drawing.Point(393, 370);
+            this.Lbltrv_vventa.Name = "Lbltrv_vventa";
+            this.Lbltrv_vventa.Size = new System.Drawing.Size(94, 15);
+            this.Lbltrv_vventa.TabIndex = 0;
+            this.Lbltrv_vventa.Text = "Base Imponible: ";
             // 
             // Mnu_Principal
             // 
@@ -1042,6 +1095,7 @@ namespace Presentacion.Facturacion
             this.Mnu_Criterios_Mostrar.Name = "Mnu_Criterios_Mostrar";
             this.Mnu_Criterios_Mostrar.Size = new System.Drawing.Size(129, 20);
             this.Mnu_Criterios_Mostrar.Text = " & Mostrar Criterios";
+            this.Mnu_Criterios_Mostrar.Visible = false;
             this.Mnu_Criterios_Mostrar.Click += new System.EventHandler(this.Mnu_Criterios_Mostrar_Click);
             // 
             // Mnu_Criterios_Ocultar
@@ -1069,6 +1123,7 @@ namespace Presentacion.Facturacion
             this.mnuOcultar.Name = "mnuOcultar";
             this.mnuOcultar.Size = new System.Drawing.Size(76, 20);
             this.mnuOcultar.Text = "Mostrar";
+            this.mnuOcultar.Visible = false;
             this.mnuOcultar.Click += new System.EventHandler(this.mnuOcultar_Click);
             // 
             // MenuStrip1
@@ -1227,7 +1282,7 @@ namespace Presentacion.Facturacion
             // 
             // frmRegistroVentas
             // 
-            this.ClientSize = new System.Drawing.Size(944, 729);
+            this.ClientSize = new System.Drawing.Size(944, 749);
             this.Controls.Add(this.PanelFiltros);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.MiToolBar);
@@ -1256,9 +1311,11 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.ResumeLayout(false);
             this.GrpClave.ResumeLayout(false);
             this.GrpClave.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Txttrv_tcambio)).EndInit();
             this.ToolDetalles.ResumeLayout(false);
             this.ToolDetalles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcxDetalles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Txttrv_pigv)).EndInit();
             this.MenuStrip1.ResumeLayout(false);
             this.MenuStrip1.PerformLayout();
             this.MiToolBar.ResumeLayout(false);
@@ -1281,7 +1338,7 @@ namespace Presentacion.Facturacion
         internal System.Windows.Forms.TabPage TabPage2;
         internal System.Windows.Forms.SplitContainer RadSplitContainer2;
         internal System.Windows.Forms.Label Lbltrv_periodo;
-        internal System.Windows.Forms.TextBox Txttrv_periodo;
+        internal System.Windows.Forms.DateTimePicker Txttrv_periodo;
         internal System.Windows.Forms.Label Lbltrv_tipo;
         internal System.Windows.Forms.TextBox Txttrv_tipo;
         internal System.Windows.Forms.Button Btntrv_tipo;
@@ -1309,15 +1366,15 @@ namespace Presentacion.Facturacion
         internal System.Windows.Forms.Button Btntrv_sdoc;
         internal System.Windows.Forms.TextBox Txttrv_ndoc;
         internal System.Windows.Forms.Label Lbltrv_femision;
-        internal System.Windows.Forms.TextBox Txttrv_femision;
+        internal System.Windows.Forms.DateTimePicker Txttrv_femision;
         internal System.Windows.Forms.Label Lbltrv_fvencimiento;
-        internal System.Windows.Forms.TextBox Txttrv_fvencimiento;
+        internal System.Windows.Forms.DateTimePicker Txttrv_fvencimiento;
         internal System.Windows.Forms.Label Lbltrv_moneda;
         internal System.Windows.Forms.TextBox Txttrv_moneda;
         internal System.Windows.Forms.Button Btntrv_moneda;
         internal System.Windows.Forms.TextBox Txttrv_moneda_Des;
         internal System.Windows.Forms.Label Lbltrv_tcambio;
-        internal System.Windows.Forms.TextBox Txttrv_tcambio;
+        internal System.Windows.Forms.NumericUpDown Txttrv_tcambio;
         internal System.Windows.Forms.Label Lbltrv_dctos;
         internal System.Windows.Forms.TextBox Txttrv_dctos;
         internal System.Windows.Forms.Label Lbltrv_vventa;
@@ -1327,11 +1384,11 @@ namespace Presentacion.Facturacion
         internal System.Windows.Forms.Label Lbltrv_total;
         internal System.Windows.Forms.TextBox Txttrv_total;
         internal System.Windows.Forms.Label Lbltrv_aigv;
-        internal System.Windows.Forms.TextBox Txttrv_aigv;
+        internal System.Windows.Forms.CheckBox Txttrv_aigv;
         internal System.Windows.Forms.Label Lbltrv_flag;
-        internal System.Windows.Forms.TextBox Txttrv_flag;
+        internal System.Windows.Forms.CheckBox Txttrv_flag;
         internal System.Windows.Forms.Label Lbltrv_pigv;
-        internal System.Windows.Forms.TextBox Txttrv_pigv;
+        internal System.Windows.Forms.NumericUpDown Txttrv_pigv;
         internal System.Windows.Forms.ToolStrip ToolDetalles;
         internal System.Windows.Forms.ToolStripButton Tlb_D_Nuevo;
         internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator5;
@@ -1375,5 +1432,7 @@ namespace Presentacion.Facturacion
         internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator1;
         internal System.Windows.Forms.ToolStrip MiToolBar;
         private GroupBox GrpClave;
+        internal DateTimePicker Txttrv_mes;
+        internal Label Lbltrv_mes;
     }
 }

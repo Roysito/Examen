@@ -18,6 +18,8 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
             SqlCommand CMDcab_delete = new SqlCommand();
             SqlCommand CMDcab_insert = new SqlCommand();
             SqlCommand CMDdet_insert = new SqlCommand();
+            SqlCommand CMDDocumento = new SqlCommand();
+            
             using (SqlConnection oCN2 = new SqlConnection(conexion.DBCCapaDatos.pStrConString))
             {
                 oCN2.Open();
@@ -26,10 +28,10 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
                 CMDdet_delete.Transaction = oTransaction;
                 CMDdet_delete.CommandType = CommandType.StoredProcedure;
                 CMDdet_delete.CommandText = "SPU_ELIMINAR_TRVENTAS_DET" ;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_empresa == null || pEntCab.trv_empresa == "" ? DBNull.Value : (object)pEntCab.trv_empresa;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_periodo == null || pEntCab.trv_periodo == "" ? DBNull.Value : (object)pEntCab.trv_periodo;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_tipo == null || pEntCab.trv_tipo == "" ? DBNull.Value : (object)pEntCab.trv_tipo;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_registro == null || pEntCab.trv_registro == "" ? DBNull.Value : (object)pEntCab.trv_registro;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_empresa", SqlDbType.VarChar)).Value = pEntCab.trv_empresa == null || pEntCab.trv_empresa == "" ? DBNull.Value : (object)pEntCab.trv_empresa;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_periodo", SqlDbType.VarChar)).Value = pEntCab.trv_periodo == null || pEntCab.trv_periodo == "" ? DBNull.Value : (object)pEntCab.trv_periodo;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_tipo", SqlDbType.VarChar)).Value = pEntCab.trv_tipo == null || pEntCab.trv_tipo == "" ? DBNull.Value : (object)pEntCab.trv_tipo;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_registro", SqlDbType.VarChar)).Value = pEntCab.trv_registro == null || pEntCab.trv_registro == "" ? DBNull.Value : (object)pEntCab.trv_registro;
                 CMDcab_delete.Connection = oCN2;
                 CMDcab_delete.Transaction = oTransaction;
                 CMDcab_delete.CommandType = CommandType.StoredProcedure;
@@ -91,6 +93,16 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
                         CMDdet_insert.Parameters.Add(new SqlParameter("@ptrvd_tot", SqlDbType.Decimal)).Value = lLisDet.trvd_tot == null || lLisDet.trvd_tot == 0 ? DBNull.Value : (object)lLisDet.trvd_tot;
                         vIntResultado = CMDdet_insert.ExecuteNonQuery();
                     }
+                    CMDDocumento.Connection = oCN2;
+                    CMDDocumento.Transaction = oTransaction;
+                    CMDDocumento.CommandType = CommandType.StoredProcedure;
+                    CMDDocumento.CommandText = "SPU_ACTUALIZAR_TDOCUMENTOS_SERIES";
+                    CMDDocumento.Parameters.Add(new SqlParameter("@ptdocs_empresa", SqlDbType.VarChar)).Value = pEntCab.trv_empresa == null || pEntCab.trv_empresa == "" ? DBNull.Value : (object)pEntCab.trv_empresa;
+                    CMDDocumento.Parameters.Add(new SqlParameter("@ptdocs_codigo", SqlDbType.VarChar)).Value = pEntCab.trv_tdoc == null || pEntCab.trv_tdoc == "" ? DBNull.Value : (object)pEntCab.trv_tdoc;
+                    CMDDocumento.Parameters.Add(new SqlParameter("@ptdocs_serie", SqlDbType.VarChar)).Value = pEntCab.trv_sdoc == null || pEntCab.trv_sdoc == "" ? DBNull.Value : (object)pEntCab.trv_sdoc;
+                    CMDDocumento.Parameters.Add(new SqlParameter("@ptdocs_numerador", SqlDbType.VarChar)).Value = pEntCab.trv_ndoc == null || pEntCab.trv_ndoc == "" ? DBNull.Value : (object)pEntCab.trv_ndoc;
+                    CMDDocumento.Parameters.Add(new SqlParameter("@ptdocs_serie_predeterminada", SqlDbType.Bit)).Value = 0;
+                    vIntResultado = CMDDocumento.ExecuteNonQuery();
                     if (vIntResultado > 0)
                     {
                         vIntResultadoExecute += 1;
