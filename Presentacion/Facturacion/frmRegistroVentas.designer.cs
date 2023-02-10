@@ -120,6 +120,7 @@ namespace Presentacion.Facturacion
             this.Tlb_Cerrar = new System.Windows.Forms.ToolStripButton();
             this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MiToolBar = new System.Windows.Forms.ToolStrip();
+            this.GrpClave = new System.Windows.Forms.GroupBox();
             this.PanelFiltros.SuspendLayout();
             this.Mnu_Filtros.SuspendLayout();
             this.TabControl1.SuspendLayout();
@@ -134,6 +135,7 @@ namespace Presentacion.Facturacion
             ((System.ComponentModel.ISupportInitialize)(this.AcxDetalles)).BeginInit();
             this.MenuStrip1.SuspendLayout();
             this.MiToolBar.SuspendLayout();
+            this.GrpClave.SuspendLayout();
             this.SuspendLayout();
             // 
             // miniToolStrip
@@ -279,12 +281,7 @@ namespace Presentacion.Facturacion
             // 
             // RadSplitContainer2.Panel1
             // 
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_periodo);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_periodo);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_tipo);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_tipo);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_registro);
-            this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_registro);
+            this.RadSplitContainer2.Panel1.Controls.Add(this.GrpClave);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_entidad);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Txttrv_entidad);
             this.RadSplitContainer2.Panel1.Controls.Add(this.Lbltrv_idvendedor);
@@ -340,7 +337,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_periodo
             // 
             this.Lbltrv_periodo.AutoSize = true;
-            this.Lbltrv_periodo.Location = new System.Drawing.Point(15, 11);
+            this.Lbltrv_periodo.Location = new System.Drawing.Point(6, 19);
             this.Lbltrv_periodo.Name = "Lbltrv_periodo";
             this.Lbltrv_periodo.Size = new System.Drawing.Size(54, 15);
             this.Lbltrv_periodo.TabIndex = 0;
@@ -348,7 +345,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_periodo
             // 
-            this.Txttrv_periodo.Location = new System.Drawing.Point(75, 8);
+            this.Txttrv_periodo.Location = new System.Drawing.Point(66, 16);
             this.Txttrv_periodo.MaxLength = 4;
             this.Txttrv_periodo.Name = "Txttrv_periodo";
             this.Txttrv_periodo.Size = new System.Drawing.Size(63, 23);
@@ -357,7 +354,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_tipo
             // 
             this.Lbltrv_tipo.AutoSize = true;
-            this.Lbltrv_tipo.Location = new System.Drawing.Point(144, 11);
+            this.Lbltrv_tipo.Location = new System.Drawing.Point(135, 19);
             this.Lbltrv_tipo.Name = "Lbltrv_tipo";
             this.Lbltrv_tipo.Size = new System.Drawing.Size(72, 15);
             this.Lbltrv_tipo.TabIndex = 0;
@@ -365,7 +362,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_tipo
             // 
-            this.Txttrv_tipo.Location = new System.Drawing.Point(222, 8);
+            this.Txttrv_tipo.Location = new System.Drawing.Point(213, 16);
             this.Txttrv_tipo.MaxLength = 3;
             this.Txttrv_tipo.Name = "Txttrv_tipo";
             this.Txttrv_tipo.Size = new System.Drawing.Size(100, 23);
@@ -374,7 +371,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_registro
             // 
             this.Lbltrv_registro.AutoSize = true;
-            this.Lbltrv_registro.Location = new System.Drawing.Point(331, 10);
+            this.Lbltrv_registro.Location = new System.Drawing.Point(322, 18);
             this.Lbltrv_registro.Name = "Lbltrv_registro";
             this.Lbltrv_registro.Size = new System.Drawing.Size(103, 15);
             this.Lbltrv_registro.TabIndex = 0;
@@ -382,7 +379,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_registro
             // 
-            this.Txttrv_registro.Location = new System.Drawing.Point(612, 11);
+            this.Txttrv_registro.Location = new System.Drawing.Point(426, 16);
             this.Txttrv_registro.MaxLength = 8;
             this.Txttrv_registro.Name = "Txttrv_registro";
             this.Txttrv_registro.Size = new System.Drawing.Size(100, 23);
@@ -1155,6 +1152,20 @@ namespace Presentacion.Facturacion
             this.MiToolBar.Size = new System.Drawing.Size(1329, 25);
             this.MiToolBar.TabIndex = 36;
             // 
+            // GrpClave
+            // 
+            this.GrpClave.Controls.Add(this.Lbltrv_periodo);
+            this.GrpClave.Controls.Add(this.Txttrv_registro);
+            this.GrpClave.Controls.Add(this.Txttrv_periodo);
+            this.GrpClave.Controls.Add(this.Lbltrv_registro);
+            this.GrpClave.Controls.Add(this.Lbltrv_tipo);
+            this.GrpClave.Controls.Add(this.Txttrv_tipo);
+            this.GrpClave.Location = new System.Drawing.Point(15, 3);
+            this.GrpClave.Name = "GrpClave";
+            this.GrpClave.Size = new System.Drawing.Size(743, 56);
+            this.GrpClave.TabIndex = 4;
+            this.GrpClave.TabStop = false;
+            // 
             // frmRegistroVentas
             // 
             this.ClientSize = new System.Drawing.Size(1329, 902);
@@ -1191,6 +1202,8 @@ namespace Presentacion.Facturacion
             this.MenuStrip1.PerformLayout();
             this.MiToolBar.ResumeLayout(false);
             this.MiToolBar.PerformLayout();
+            this.GrpClave.ResumeLayout(false);
+            this.GrpClave.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1298,5 +1311,6 @@ namespace Presentacion.Facturacion
         internal System.Windows.Forms.ToolStripButton Tlb_Cerrar;
         internal System.Windows.Forms.ToolStripSeparator ToolStripSeparator1;
         internal System.Windows.Forms.ToolStrip MiToolBar;
+        private GroupBox GrpClave;
     }
 }
