@@ -427,7 +427,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_idvendedor
             // 
-            this.Txttrv_idvendedor.Location = new System.Drawing.Point(296, 143);
+            this.Txttrv_idvendedor.Location = new System.Drawing.Point(319, 83);
             this.Txttrv_idvendedor.MaxLength = 10;
             this.Txttrv_idvendedor.Name = "Txttrv_idvendedor";
             this.Txttrv_idvendedor.Size = new System.Drawing.Size(100, 23);
@@ -438,7 +438,7 @@ namespace Presentacion.Facturacion
             // 
             // Btntrv_idvendedor
             // 
-            this.Btntrv_idvendedor.Location = new System.Drawing.Point(396, 143);
+            this.Btntrv_idvendedor.Location = new System.Drawing.Point(419, 83);
             this.Btntrv_idvendedor.Name = "Btntrv_idvendedor";
             this.Btntrv_idvendedor.Size = new System.Drawing.Size(39, 24);
             this.Btntrv_idvendedor.TabIndex = 3;
@@ -448,7 +448,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_idvendedor_Des
             // 
-            this.Txttrv_idvendedor_Des.Location = new System.Drawing.Point(435, 140);
+            this.Txttrv_idvendedor_Des.Location = new System.Drawing.Point(458, 80);
             this.Txttrv_idvendedor_Des.Name = "Txttrv_idvendedor_Des";
             this.Txttrv_idvendedor_Des.ReadOnly = true;
             this.Txttrv_idvendedor_Des.Size = new System.Drawing.Size(377, 23);
@@ -465,7 +465,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_idformapago
             // 
-            this.Txttrv_idformapago.Location = new System.Drawing.Point(296, 169);
+            this.Txttrv_idformapago.Location = new System.Drawing.Point(559, 113);
             this.Txttrv_idformapago.MaxLength = 10;
             this.Txttrv_idformapago.Name = "Txttrv_idformapago";
             this.Txttrv_idformapago.Size = new System.Drawing.Size(100, 23);
@@ -476,7 +476,7 @@ namespace Presentacion.Facturacion
             // 
             // Btntrv_idformapago
             // 
-            this.Btntrv_idformapago.Location = new System.Drawing.Point(396, 169);
+            this.Btntrv_idformapago.Location = new System.Drawing.Point(659, 113);
             this.Btntrv_idformapago.Name = "Btntrv_idformapago";
             this.Btntrv_idformapago.Size = new System.Drawing.Size(39, 24);
             this.Btntrv_idformapago.TabIndex = 3;
@@ -486,7 +486,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_idformapago_Des
             // 
-            this.Txttrv_idformapago_Des.Location = new System.Drawing.Point(435, 165);
+            this.Txttrv_idformapago_Des.Location = new System.Drawing.Point(698, 109);
             this.Txttrv_idformapago_Des.Name = "Txttrv_idformapago_Des";
             this.Txttrv_idformapago_Des.ReadOnly = true;
             this.Txttrv_idformapago_Des.Size = new System.Drawing.Size(377, 23);
