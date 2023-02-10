@@ -1104,21 +1104,29 @@ namespace Presentacion.Facturacion
             //if (getDelRestriccion(vStrRestricciones) == false) return;
             int lIntItem = 0;
             int POSITION;
-            bool lBlRelacionado;
-            string lChClave;
+            int lIntReturn = 0;
+
+            ENT_TRVENTAS_CAB lENT_TRVENTAS_CAB;
+
             try
             {
                 if (AcxControl.CurrentRow != null)
                 {
                     POSITION = AcxControl.CurrentRow.Index;
                     lIntItem = AcxControl.CurrentRow.Index;
-                    lBlRelacionado = false;
                     if (iUT_Telerik.setRadMensajePregunta(iConvertir.aString("¿Seguro que desea anular el registro actual ? "), iConvertir.aString("Anular")) == true)
                     {
-                        AcxControl.Rows.RemoveAt(AcxControl.CurrentRow.Index);
+                        lENT_TRVENTAS_CAB = new ENT_TRVENTAS_CAB();
+                        lENT_TRVENTAS_CAB.trv_empresa = GlobalesVariables.company;
+                        lENT_TRVENTAS_CAB.trv_periodo = Convert.ToString(this.AcxControl.Rows[lIntItem].Cells[Col_trv_periodo].Value);
+                        lENT_TRVENTAS_CAB.trv_tipo = Convert.ToString(Convert.ToString(this.AcxControl.Rows[lIntItem].Cells[Col_trv_tipo].Value));
+                        lENT_TRVENTAS_CAB.trv_registro = Convert.ToString(Convert.ToString(this.AcxControl.Rows[lIntItem].Cells[Col_trv_registro].Value));
+                        if (LN_TRVENTAS_CAB.setEliminarTRVENTAS_CAB(lENT_TRVENTAS_CAB, out lIntReturn) == true)
+                            AcxControl.Rows.RemoveAt(lIntItem);
                         if (AcxControl.Rows.Count > 0)
                         {
-                            AcxControl.Rows[POSITION].Selected = true;
+                            if (POSITION - 1 >= 0)
+                                AcxControl.Rows[POSITION-1].Selected = true;
                         }
                     }
                 }
@@ -1145,6 +1153,8 @@ namespace Presentacion.Facturacion
                 iIntModo = 3;
                 setControlMenu(false);
                 getDatosDetalles();
+                GeneraRegistro();
+                ValidaTDOCUMENTOS_SERIES_trv_sdoc();
             }
             else
             {
@@ -1444,8 +1454,14 @@ namespace Presentacion.Facturacion
                 lENT_TRVENTAS_CAB.trv_vventa = Convert.ToDecimal(Txttrv_vventa.Text);
                 lENT_TRVENTAS_CAB.trv_igv = Convert.ToDecimal(Txttrv_igv.Text);
                 lENT_TRVENTAS_CAB.trv_total = Convert.ToDecimal(Txttrv_total.Text);
-                lENT_TRVENTAS_CAB.trv_aigv = Convert.ToInt32(Txttrv_aigv.Checked);
-                lENT_TRVENTAS_CAB.trv_flag = Convert.ToInt32(Txttrv_flag.Checked);
+                if (Txttrv_aigv.Checked == true)
+                    lENT_TRVENTAS_CAB.trv_aigv = 1;
+                else
+                    lENT_TRVENTAS_CAB.trv_aigv = 0;
+                if (Txttrv_flag.Checked == true)
+                    lENT_TRVENTAS_CAB.trv_flag = 1;
+                else
+                    lENT_TRVENTAS_CAB.trv_flag = 0;
                 lENT_TRVENTAS_CAB.trv_pigv = Convert.ToDecimal(Txttrv_pigv.Text);
                 for (int lIntRow = 0; lIntRow < AcxDetalles.Rows.Count; lIntRow++)
                 {

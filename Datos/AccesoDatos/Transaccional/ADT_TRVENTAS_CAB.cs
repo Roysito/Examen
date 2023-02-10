@@ -63,8 +63,8 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_vventa", SqlDbType.Decimal)).Value = pEntCab.trv_vventa == null || pEntCab.trv_vventa == 0 ? DBNull.Value : (object)pEntCab.trv_vventa;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_igv", SqlDbType.Decimal)).Value = pEntCab.trv_igv == null || pEntCab.trv_igv == 0 ? DBNull.Value : (object)pEntCab.trv_igv;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_total", SqlDbType.Decimal)).Value = pEntCab.trv_total == null || pEntCab.trv_total == 0 ? DBNull.Value : (object)pEntCab.trv_total;
-                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_aigv", SqlDbType.Int)).Value = pEntCab.trv_aigv == null || pEntCab.trv_aigv == 0 ? DBNull.Value : (object)pEntCab.trv_aigv;
-                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_flag", SqlDbType.Int)).Value = pEntCab.trv_flag == null || pEntCab.trv_flag == 0 ? DBNull.Value : (object)pEntCab.trv_flag;
+                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_aigv", SqlDbType.Int)).Value = pEntCab.trv_aigv;
+                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_flag", SqlDbType.Int)).Value = pEntCab.trv_flag;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_pigv", SqlDbType.Decimal)).Value = pEntCab.trv_pigv == null || pEntCab.trv_pigv == 0 ? DBNull.Value : (object)pEntCab.trv_pigv;
                 try
                 {
@@ -174,8 +174,8 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_vventa", SqlDbType.Decimal)).Value = pEntCab.trv_vventa == null || pEntCab.trv_vventa == 0 ? DBNull.Value : (object)pEntCab.trv_vventa;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_igv", SqlDbType.Decimal)).Value = pEntCab.trv_igv == null || pEntCab.trv_igv == 0 ? DBNull.Value : (object)pEntCab.trv_igv;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_total", SqlDbType.Decimal)).Value = pEntCab.trv_total == null || pEntCab.trv_total == 0 ? DBNull.Value : (object)pEntCab.trv_total;
-                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_aigv", SqlDbType.Int)).Value = pEntCab.trv_aigv == null || pEntCab.trv_aigv == 0 ? DBNull.Value : (object)pEntCab.trv_aigv;
-                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_flag", SqlDbType.Int)).Value = pEntCab.trv_flag == null || pEntCab.trv_flag == 0 ? DBNull.Value : (object)pEntCab.trv_flag;
+                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_aigv", SqlDbType.Int)).Value = pEntCab.trv_aigv == null ? DBNull.Value : (object)pEntCab.trv_aigv;
+                CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_flag", SqlDbType.Int)).Value = pEntCab.trv_flag == null ? DBNull.Value : (object)pEntCab.trv_flag;
                 CMDcab_insert.Parameters.Add(new SqlParameter("@ptrv_pigv", SqlDbType.Decimal)).Value = pEntCab.trv_pigv == null || pEntCab.trv_pigv == 0 ? DBNull.Value : (object)pEntCab.trv_pigv;
                 try
                 {
@@ -245,10 +245,10 @@ namespace CapaAcceosDatos.AccesoDatos.Transaccional
                 CMDdet_delete.Transaction = oTransaction;
                 CMDdet_delete.CommandType = CommandType.StoredProcedure;
                 CMDdet_delete.CommandText = "SPU_ELIMINAR_TRVENTAS_DET" ;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_empresa == null || pEntCab.trv_empresa == "" ? DBNull.Value : (object)pEntCab.trv_empresa;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_periodo == null || pEntCab.trv_periodo == "" ? DBNull.Value : (object)pEntCab.trv_periodo;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_tipo == null || pEntCab.trv_tipo == "" ? DBNull.Value : (object)pEntCab.trv_tipo;
-                CMDdet_delete.Parameters.Add(new SqlParameter("@p", SqlDbType.VarChar)).Value = pEntCab.trv_registro == null || pEntCab.trv_registro == "" ? DBNull.Value : (object)pEntCab.trv_registro;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_empresa", SqlDbType.VarChar)).Value = pEntCab.trv_empresa == null || pEntCab.trv_empresa == "" ? DBNull.Value : (object)pEntCab.trv_empresa;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_periodo", SqlDbType.VarChar)).Value = pEntCab.trv_periodo == null || pEntCab.trv_periodo == "" ? DBNull.Value : (object)pEntCab.trv_periodo;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_tipo", SqlDbType.VarChar)).Value = pEntCab.trv_tipo == null || pEntCab.trv_tipo == "" ? DBNull.Value : (object)pEntCab.trv_tipo;
+                CMDdet_delete.Parameters.Add(new SqlParameter("@ptrvd_registro", SqlDbType.VarChar)).Value = pEntCab.trv_registro == null || pEntCab.trv_registro == "" ? DBNull.Value : (object)pEntCab.trv_registro;
                 CMDcab_delete.Connection = oCN2;
                 CMDcab_delete.Transaction = oTransaction;
                 CMDcab_delete.CommandType = CommandType.StoredProcedure;

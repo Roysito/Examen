@@ -208,7 +208,7 @@ namespace Presentacion.Facturacion
             this.PanelFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PanelFiltros.Controls.Add(this.Lbl_Criterios);
             this.PanelFiltros.Controls.Add(this.Mnu_Filtros);
-            this.PanelFiltros.Location = new System.Drawing.Point(794, 339);
+            this.PanelFiltros.Location = new System.Drawing.Point(794, 277);
             this.PanelFiltros.Name = "PanelFiltros";
             this.PanelFiltros.Size = new System.Drawing.Size(650, 145);
             this.PanelFiltros.TabIndex = 39;
@@ -239,7 +239,7 @@ namespace Presentacion.Facturacion
             this.TabControl1.Location = new System.Drawing.Point(0, 52);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(944, 679);
+            this.TabControl1.Size = new System.Drawing.Size(944, 466);
             this.TabControl1.TabIndex = 38;
             // 
             // TabPage1
@@ -248,7 +248,7 @@ namespace Presentacion.Facturacion
             this.TabPage1.Location = new System.Drawing.Point(4, 24);
             this.TabPage1.Name = "TabPage1";
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage1.Size = new System.Drawing.Size(936, 287);
+            this.TabPage1.Size = new System.Drawing.Size(936, 651);
             this.TabPage1.TabIndex = 0;
             this.TabPage1.Text = "Información del General";
             this.TabPage1.UseVisualStyleBackColor = true;
@@ -260,7 +260,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxControl.Location = new System.Drawing.Point(0, 3);
             this.AcxControl.Name = "AcxControl";
-            this.AcxControl.Size = new System.Drawing.Size(933, 281);
+            this.AcxControl.Size = new System.Drawing.Size(933, 645);
             this.AcxControl.TabIndex = 38;
             this.AcxControl.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxControl_CellBeginEdit);
             this.AcxControl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxControl_CellContentClick);
@@ -275,7 +275,7 @@ namespace Presentacion.Facturacion
             this.TabPage2.Location = new System.Drawing.Point(4, 24);
             this.TabPage2.Name = "TabPage2";
             this.TabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage2.Size = new System.Drawing.Size(936, 651);
+            this.TabPage2.Size = new System.Drawing.Size(936, 438);
             this.TabPage2.TabIndex = 1;
             this.TabPage2.Text = "Información del Registro(Ficha de Datos)";
             this.TabPage2.UseVisualStyleBackColor = true;
@@ -339,8 +339,8 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.Panel2.Controls.Add(this.Txttrv_dctos);
             this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_igv);
             this.RadSplitContainer2.Panel2.Controls.Add(this.Lbltrv_vventa);
-            this.RadSplitContainer2.Size = new System.Drawing.Size(930, 645);
-            this.RadSplitContainer2.SplitterDistance = 170;
+            this.RadSplitContainer2.Size = new System.Drawing.Size(930, 432);
+            this.RadSplitContainer2.SplitterDistance = 218;
             this.RadSplitContainer2.TabIndex = 68;
             this.RadSplitContainer2.TabStop = false;
             // 
@@ -852,7 +852,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxDetalles.Location = new System.Drawing.Point(3, 28);
             this.AcxDetalles.Name = "AcxDetalles";
-            this.AcxDetalles.Size = new System.Drawing.Size(927, 425);
+            this.AcxDetalles.Size = new System.Drawing.Size(927, 140);
             this.AcxDetalles.TabIndex = 66;
             this.AcxDetalles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxDetalles_CellBeginEdit);
             this.AcxDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxDetalles_CellContentClick);
@@ -864,7 +864,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_vventa
             // 
-            this.Txttrv_vventa.Location = new System.Drawing.Point(493, 365);
+            this.Txttrv_vventa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Txttrv_vventa.Location = new System.Drawing.Point(467, 174);
             this.Txttrv_vventa.MaxLength = 20;
             this.Txttrv_vventa.Name = "Txttrv_vventa";
             this.Txttrv_vventa.ReadOnly = true;
@@ -873,8 +874,9 @@ namespace Presentacion.Facturacion
             // 
             // Lbltrv_pigv
             // 
+            this.Lbltrv_pigv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbltrv_pigv.AutoSize = true;
-            this.Lbltrv_pigv.Location = new System.Drawing.Point(31, 370);
+            this.Lbltrv_pigv.Location = new System.Drawing.Point(5, 179);
             this.Lbltrv_pigv.Name = "Lbltrv_pigv";
             this.Lbltrv_pigv.Size = new System.Drawing.Size(45, 15);
             this.Lbltrv_pigv.TabIndex = 0;
@@ -882,7 +884,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_total
             // 
-            this.Txttrv_total.Location = new System.Drawing.Point(839, 365);
+            this.Txttrv_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Txttrv_total.Location = new System.Drawing.Point(813, 174);
             this.Txttrv_total.MaxLength = 20;
             this.Txttrv_total.Name = "Txttrv_total";
             this.Txttrv_total.ReadOnly = true;
@@ -891,8 +894,9 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_pigv
             // 
+            this.Txttrv_pigv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Txttrv_pigv.DecimalPlaces = 2;
-            this.Txttrv_pigv.Location = new System.Drawing.Point(82, 365);
+            this.Txttrv_pigv.Location = new System.Drawing.Point(56, 174);
             this.Txttrv_pigv.Minimum = new decimal(new int[] {
             1,
             0,
@@ -910,8 +914,9 @@ namespace Presentacion.Facturacion
             // 
             // Lbltrv_total
             // 
+            this.Lbltrv_total.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbltrv_total.AutoSize = true;
-            this.Lbltrv_total.Location = new System.Drawing.Point(758, 370);
+            this.Lbltrv_total.Location = new System.Drawing.Point(732, 179);
             this.Lbltrv_total.Name = "Lbltrv_total";
             this.Lbltrv_total.Size = new System.Drawing.Size(70, 15);
             this.Lbltrv_total.TabIndex = 0;
@@ -919,8 +924,9 @@ namespace Presentacion.Facturacion
             // 
             // Lbltrv_dctos
             // 
+            this.Lbltrv_dctos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbltrv_dctos.AutoSize = true;
-            this.Lbltrv_dctos.Location = new System.Drawing.Point(170, 370);
+            this.Lbltrv_dctos.Location = new System.Drawing.Point(144, 179);
             this.Lbltrv_dctos.Name = "Lbltrv_dctos";
             this.Lbltrv_dctos.Size = new System.Drawing.Size(102, 15);
             this.Lbltrv_dctos.TabIndex = 0;
@@ -928,7 +934,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_igv
             // 
-            this.Txttrv_igv.Location = new System.Drawing.Point(652, 365);
+            this.Txttrv_igv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Txttrv_igv.Location = new System.Drawing.Point(626, 174);
             this.Txttrv_igv.MaxLength = 20;
             this.Txttrv_igv.Name = "Txttrv_igv";
             this.Txttrv_igv.ReadOnly = true;
@@ -937,7 +944,8 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_dctos
             // 
-            this.Txttrv_dctos.Location = new System.Drawing.Point(278, 365);
+            this.Txttrv_dctos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.Txttrv_dctos.Location = new System.Drawing.Point(252, 174);
             this.Txttrv_dctos.MaxLength = 20;
             this.Txttrv_dctos.Name = "Txttrv_dctos";
             this.Txttrv_dctos.ReadOnly = true;
@@ -946,8 +954,9 @@ namespace Presentacion.Facturacion
             // 
             // Lbltrv_igv
             // 
+            this.Lbltrv_igv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbltrv_igv.AutoSize = true;
-            this.Lbltrv_igv.Location = new System.Drawing.Point(612, 370);
+            this.Lbltrv_igv.Location = new System.Drawing.Point(586, 179);
             this.Lbltrv_igv.Name = "Lbltrv_igv";
             this.Lbltrv_igv.Size = new System.Drawing.Size(29, 15);
             this.Lbltrv_igv.TabIndex = 0;
@@ -955,8 +964,9 @@ namespace Presentacion.Facturacion
             // 
             // Lbltrv_vventa
             // 
+            this.Lbltrv_vventa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.Lbltrv_vventa.AutoSize = true;
-            this.Lbltrv_vventa.Location = new System.Drawing.Point(393, 370);
+            this.Lbltrv_vventa.Location = new System.Drawing.Point(367, 179);
             this.Lbltrv_vventa.Name = "Lbltrv_vventa";
             this.Lbltrv_vventa.Size = new System.Drawing.Size(94, 15);
             this.Lbltrv_vventa.TabIndex = 0;
@@ -1282,7 +1292,7 @@ namespace Presentacion.Facturacion
             // 
             // frmRegistroVentas
             // 
-            this.ClientSize = new System.Drawing.Size(944, 749);
+            this.ClientSize = new System.Drawing.Size(944, 522);
             this.Controls.Add(this.PanelFiltros);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.MiToolBar);
