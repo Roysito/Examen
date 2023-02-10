@@ -30,12 +30,13 @@ namespace Presentacion.Facturacion
             this.AcxControl = new System.Windows.Forms.DataGridView();
             this.TabPage2 = new System.Windows.Forms.TabPage();
             this.RadSplitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.GrpClave = new System.Windows.Forms.GroupBox();
             this.Lbltrv_periodo = new System.Windows.Forms.Label();
+            this.Txttrv_registro = new System.Windows.Forms.TextBox();
             this.Txttrv_periodo = new System.Windows.Forms.TextBox();
+            this.Lbltrv_registro = new System.Windows.Forms.Label();
             this.Lbltrv_tipo = new System.Windows.Forms.Label();
             this.Txttrv_tipo = new System.Windows.Forms.TextBox();
-            this.Lbltrv_registro = new System.Windows.Forms.Label();
-            this.Txttrv_registro = new System.Windows.Forms.TextBox();
             this.Lbltrv_entidad = new System.Windows.Forms.Label();
             this.Txttrv_entidad = new System.Windows.Forms.TextBox();
             this.Lbltrv_idvendedor = new System.Windows.Forms.Label();
@@ -120,7 +121,6 @@ namespace Presentacion.Facturacion
             this.Tlb_Cerrar = new System.Windows.Forms.ToolStripButton();
             this.ToolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.MiToolBar = new System.Windows.Forms.ToolStrip();
-            this.GrpClave = new System.Windows.Forms.GroupBox();
             this.PanelFiltros.SuspendLayout();
             this.Mnu_Filtros.SuspendLayout();
             this.TabControl1.SuspendLayout();
@@ -131,11 +131,11 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.Panel1.SuspendLayout();
             this.RadSplitContainer2.Panel2.SuspendLayout();
             this.RadSplitContainer2.SuspendLayout();
+            this.GrpClave.SuspendLayout();
             this.ToolDetalles.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcxDetalles)).BeginInit();
             this.MenuStrip1.SuspendLayout();
             this.MiToolBar.SuspendLayout();
-            this.GrpClave.SuspendLayout();
             this.SuspendLayout();
             // 
             // miniToolStrip
@@ -231,7 +231,7 @@ namespace Presentacion.Facturacion
             this.TabControl1.Location = new System.Drawing.Point(0, 52);
             this.TabControl1.Name = "TabControl1";
             this.TabControl1.SelectedIndex = 0;
-            this.TabControl1.Size = new System.Drawing.Size(1329, 823);
+            this.TabControl1.Size = new System.Drawing.Size(1329, 670);
             this.TabControl1.TabIndex = 38;
             // 
             // TabPage1
@@ -240,7 +240,7 @@ namespace Presentacion.Facturacion
             this.TabPage1.Location = new System.Drawing.Point(4, 24);
             this.TabPage1.Name = "TabPage1";
             this.TabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage1.Size = new System.Drawing.Size(1321, 795);
+            this.TabPage1.Size = new System.Drawing.Size(1321, 642);
             this.TabPage1.TabIndex = 0;
             this.TabPage1.Text = "Información del General";
             this.TabPage1.UseVisualStyleBackColor = true;
@@ -252,7 +252,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxControl.Location = new System.Drawing.Point(0, 3);
             this.AcxControl.Name = "AcxControl";
-            this.AcxControl.Size = new System.Drawing.Size(1318, 789);
+            this.AcxControl.Size = new System.Drawing.Size(1318, 636);
             this.AcxControl.TabIndex = 38;
             this.AcxControl.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxControl_CellBeginEdit);
             this.AcxControl.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxControl_CellContentClick);
@@ -267,7 +267,7 @@ namespace Presentacion.Facturacion
             this.TabPage2.Location = new System.Drawing.Point(4, 24);
             this.TabPage2.Name = "TabPage2";
             this.TabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.TabPage2.Size = new System.Drawing.Size(1321, 795);
+            this.TabPage2.Size = new System.Drawing.Size(1321, 642);
             this.TabPage2.TabIndex = 1;
             this.TabPage2.Text = "Información del Registro(Ficha de Datos)";
             this.TabPage2.UseVisualStyleBackColor = true;
@@ -329,10 +329,24 @@ namespace Presentacion.Facturacion
             // 
             this.RadSplitContainer2.Panel2.Controls.Add(this.ToolDetalles);
             this.RadSplitContainer2.Panel2.Controls.Add(this.AcxDetalles);
-            this.RadSplitContainer2.Size = new System.Drawing.Size(1315, 789);
-            this.RadSplitContainer2.SplitterDistance = 595;
+            this.RadSplitContainer2.Size = new System.Drawing.Size(1315, 636);
+            this.RadSplitContainer2.SplitterDistance = 479;
             this.RadSplitContainer2.TabIndex = 68;
             this.RadSplitContainer2.TabStop = false;
+            // 
+            // GrpClave
+            // 
+            this.GrpClave.Controls.Add(this.Lbltrv_periodo);
+            this.GrpClave.Controls.Add(this.Txttrv_registro);
+            this.GrpClave.Controls.Add(this.Txttrv_periodo);
+            this.GrpClave.Controls.Add(this.Lbltrv_registro);
+            this.GrpClave.Controls.Add(this.Lbltrv_tipo);
+            this.GrpClave.Controls.Add(this.Txttrv_tipo);
+            this.GrpClave.Location = new System.Drawing.Point(15, 3);
+            this.GrpClave.Name = "GrpClave";
+            this.GrpClave.Size = new System.Drawing.Size(743, 56);
+            this.GrpClave.TabIndex = 4;
+            this.GrpClave.TabStop = false;
             // 
             // Lbltrv_periodo
             // 
@@ -343,6 +357,14 @@ namespace Presentacion.Facturacion
             this.Lbltrv_periodo.TabIndex = 0;
             this.Lbltrv_periodo.Text = "Periodo: ";
             // 
+            // Txttrv_registro
+            // 
+            this.Txttrv_registro.Location = new System.Drawing.Point(426, 16);
+            this.Txttrv_registro.MaxLength = 8;
+            this.Txttrv_registro.Name = "Txttrv_registro";
+            this.Txttrv_registro.Size = new System.Drawing.Size(100, 23);
+            this.Txttrv_registro.TabIndex = 1;
+            // 
             // Txttrv_periodo
             // 
             this.Txttrv_periodo.Location = new System.Drawing.Point(66, 16);
@@ -350,6 +372,15 @@ namespace Presentacion.Facturacion
             this.Txttrv_periodo.Name = "Txttrv_periodo";
             this.Txttrv_periodo.Size = new System.Drawing.Size(63, 23);
             this.Txttrv_periodo.TabIndex = 1;
+            // 
+            // Lbltrv_registro
+            // 
+            this.Lbltrv_registro.AutoSize = true;
+            this.Lbltrv_registro.Location = new System.Drawing.Point(322, 18);
+            this.Lbltrv_registro.Name = "Lbltrv_registro";
+            this.Lbltrv_registro.Size = new System.Drawing.Size(103, 15);
+            this.Lbltrv_registro.TabIndex = 0;
+            this.Lbltrv_registro.Text = "Número Registro: ";
             // 
             // Lbltrv_tipo
             // 
@@ -368,27 +399,10 @@ namespace Presentacion.Facturacion
             this.Txttrv_tipo.Size = new System.Drawing.Size(100, 23);
             this.Txttrv_tipo.TabIndex = 1;
             // 
-            // Lbltrv_registro
-            // 
-            this.Lbltrv_registro.AutoSize = true;
-            this.Lbltrv_registro.Location = new System.Drawing.Point(322, 18);
-            this.Lbltrv_registro.Name = "Lbltrv_registro";
-            this.Lbltrv_registro.Size = new System.Drawing.Size(103, 15);
-            this.Lbltrv_registro.TabIndex = 0;
-            this.Lbltrv_registro.Text = "Número Registro: ";
-            // 
-            // Txttrv_registro
-            // 
-            this.Txttrv_registro.Location = new System.Drawing.Point(426, 16);
-            this.Txttrv_registro.MaxLength = 8;
-            this.Txttrv_registro.Name = "Txttrv_registro";
-            this.Txttrv_registro.Size = new System.Drawing.Size(100, 23);
-            this.Txttrv_registro.TabIndex = 1;
-            // 
             // Lbltrv_entidad
             // 
             this.Lbltrv_entidad.AutoSize = true;
-            this.Lbltrv_entidad.Location = new System.Drawing.Point(15, 115);
+            this.Lbltrv_entidad.Location = new System.Drawing.Point(21, 80);
             this.Lbltrv_entidad.Name = "Lbltrv_entidad";
             this.Lbltrv_entidad.Size = new System.Drawing.Size(60, 15);
             this.Lbltrv_entidad.TabIndex = 0;
@@ -396,7 +410,7 @@ namespace Presentacion.Facturacion
             // 
             // Txttrv_entidad
             // 
-            this.Txttrv_entidad.Location = new System.Drawing.Point(296, 117);
+            this.Txttrv_entidad.Location = new System.Drawing.Point(87, 77);
             this.Txttrv_entidad.MaxLength = 10;
             this.Txttrv_entidad.Name = "Txttrv_entidad";
             this.Txttrv_entidad.Size = new System.Drawing.Size(100, 23);
@@ -405,7 +419,7 @@ namespace Presentacion.Facturacion
             // Lbltrv_idvendedor
             // 
             this.Lbltrv_idvendedor.AutoSize = true;
-            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(15, 140);
+            this.Lbltrv_idvendedor.Location = new System.Drawing.Point(33, 140);
             this.Lbltrv_idvendedor.Name = "Lbltrv_idvendedor";
             this.Lbltrv_idvendedor.Size = new System.Drawing.Size(76, 15);
             this.Lbltrv_idvendedor.TabIndex = 0;
@@ -826,7 +840,7 @@ namespace Presentacion.Facturacion
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AcxDetalles.Location = new System.Drawing.Point(0, 28);
             this.AcxDetalles.Name = "AcxDetalles";
-            this.AcxDetalles.Size = new System.Drawing.Size(927, 206);
+            this.AcxDetalles.Size = new System.Drawing.Size(927, 169);
             this.AcxDetalles.TabIndex = 66;
             this.AcxDetalles.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.AcxDetalles_CellBeginEdit);
             this.AcxDetalles.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AcxDetalles_CellContentClick);
@@ -1152,23 +1166,9 @@ namespace Presentacion.Facturacion
             this.MiToolBar.Size = new System.Drawing.Size(1329, 25);
             this.MiToolBar.TabIndex = 36;
             // 
-            // GrpClave
-            // 
-            this.GrpClave.Controls.Add(this.Lbltrv_periodo);
-            this.GrpClave.Controls.Add(this.Txttrv_registro);
-            this.GrpClave.Controls.Add(this.Txttrv_periodo);
-            this.GrpClave.Controls.Add(this.Lbltrv_registro);
-            this.GrpClave.Controls.Add(this.Lbltrv_tipo);
-            this.GrpClave.Controls.Add(this.Txttrv_tipo);
-            this.GrpClave.Location = new System.Drawing.Point(15, 3);
-            this.GrpClave.Name = "GrpClave";
-            this.GrpClave.Size = new System.Drawing.Size(743, 56);
-            this.GrpClave.TabIndex = 4;
-            this.GrpClave.TabStop = false;
-            // 
             // frmRegistroVentas
             // 
-            this.ClientSize = new System.Drawing.Size(1329, 902);
+            this.ClientSize = new System.Drawing.Size(1329, 749);
             this.Controls.Add(this.PanelFiltros);
             this.Controls.Add(this.TabControl1);
             this.Controls.Add(this.MiToolBar);
@@ -1195,6 +1195,8 @@ namespace Presentacion.Facturacion
             this.RadSplitContainer2.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RadSplitContainer2)).EndInit();
             this.RadSplitContainer2.ResumeLayout(false);
+            this.GrpClave.ResumeLayout(false);
+            this.GrpClave.PerformLayout();
             this.ToolDetalles.ResumeLayout(false);
             this.ToolDetalles.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AcxDetalles)).EndInit();
@@ -1202,8 +1204,6 @@ namespace Presentacion.Facturacion
             this.MenuStrip1.PerformLayout();
             this.MiToolBar.ResumeLayout(false);
             this.MiToolBar.PerformLayout();
-            this.GrpClave.ResumeLayout(false);
-            this.GrpClave.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
